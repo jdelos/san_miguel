@@ -1,59 +1,38 @@
 ---
 // @ts-ignore
 import { Icon } from "astro-icon/components";
+import { getCollection } from 'astro:content';
 
-const features = [
-  {
-    title: "Consultas Médicas Generales",
-    description:
-      "Atención médica general para adultos, niños y embarazadas. Consulta general $5.00, consulta niño $2.50, consulta embarazada $2.50.",
-    icon: "bx:bxs-user",
-  },
-  {
-    title: "Emergencias 24/7",
-    description:
-      "Atención de emergencias las 24 horas del día, los 7 días de la semana. Consulta de emergencia $15.",
-    icon: "bx:bxs-time-five",
-  },
-  {
-    title: "Hospitalización",
-    description:
-      "Salas de hospitalización para hombres, mujeres, niños y embarazadas. Disponible 24/7. Precio por noche: $15.",
-    icon: "bx:bxs-home",
-  },
-  {
-    title: "Laboratorio",
-    description:
-      "Ofrecemos pruebas de orina, heces y sangre para diagnósticos precisos.",
-    icon: "bx:bxs-flask",
-  },
-  {
-    title: "Radiología",
-    description:
-      "Servicios de radiografías y ecografías para diagnósticos por imágenes.",
-    icon: "bx:bxs-camera",
-  },
-  {
-    title: "Farmacia",
-    description:
-      "Servicio de farmacia con medicamentos esenciales para el tratamiento de nuestros pacientes.",
-    icon: "bx:bxs-capsule",
-  },
-];
+// Get services from CMS
+const allServices = await getCollection('services');
+const services = allServices
+  .filter(service => service.data.isActive)
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(service => ({
+    title: service.data.displayTitle,
+    description: service.data.price ? 
+      `${service.body.replace(/#+\s*/g, '').split('\n')[0]} ${service.data.price}` :
+      service.body.replace(/#+\s*/g, '').split('\n')[0],
+    icon: service.data.icon,
+  }));
+
+// Get homepage content for section title and description
+const [homepageContent] = await getCollection('homepage');
+const homepage = homepageContent.data;
 ---
 
 <div class="mt-16 md:mt-0">
   <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    Nuestros Servicios Médicos
+    {homepage.servicesTitle}
   </h2>
   <p class="text-lg mt-4 text-slate-600">
-    Ofrecemos una amplia gama de servicios médicos para satisfacer las necesidades de salud de nuestra comunidad.
+    {homepage.servicesDescription}
   </p>
 </div>
 
 <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
   {
-    features.map((item) => (
+    services.map((item) => (
       <div class="flex gap-4 items-start">
         <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
           <Icon class="text-white" name={item.icon} />

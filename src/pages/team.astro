@@ -1,14 +1,18 @@
 ---
-import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
+import TeamCard from "@/components/TeamCard.astro";
+import { getCollection } from 'astro:content';
 
-// Filter team entries with 'draft: false' & date before current date
-const publishedTeamMembers = await getCollection("team", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
+const teamMembers = await getCollection('team');
+
+const departments = [
+  "Médicos",
+  "Técnicas de Laboratorio", 
+  "Enfermeros",
+  "Administración, Recepción y Limpieza"
+];
 ---
 
 <Layout title="Nuestro Personal">
@@ -18,125 +22,33 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
       <Fragment slot="desc">Conoce a nuestro equipo médico y de apoyo comprometido con tu salud.</Fragment>
     </Sectionhead>
 
-    <div class="flex flex-col gap-8 mx-auto max-w-4xl mt-16">
-      <div>
-        <h2 class="font-bold text-2xl text-gray-800 mb-6">Médicos</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Dr. Jacob van der Ende</h3>
-            <p class="text-sm text-blue-600 mb-3">Cofundador y Director Ejecutivo</p>
-            <p class="text-sm text-slate-600">Jacob es cofundador de la Fundación Quina Care. Jacob trabaja como médico y técnico de laboratorio y, además, es el director ejecutivo del hospital.</p>
+    <div class="flex flex-col gap-8 mx-auto max-w-7xl mt-16">
+      {departments.map(department => {
+        const membersInDepartment = teamMembers
+          .filter(member => member.data.department === department && member.data.isActive !== false)
+          .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+        
+        return (
+          <div>
+            <h2 class="font-bold text-2xl text-gray-800 mb-6">{department}</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {membersInDepartment.map(member => {
+                return (
+                  <TeamCard
+                    name={member.data.displayName || member.data.name}
+                    role={member.data.role}
+                    department={member.data.department}
+                    image={member.data.image}
+                    imagePosition={member.data.imagePosition}
+                  >
+                    <div set:html={member.body} />
+                  </TeamCard>
+                );
+              })}
+            </div>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Dra. Carolien van der Ende-Bouwman</h3>
-            <p class="text-sm text-blue-600 mb-3">Cofundadora</p>
-            <p class="text-sm text-slate-600">Carolien es cofundadora de la Fundación Quina Care. Además de su trabajo como médica en el hospital, realiza tareas organizativas y administrativas para la fundación.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Dra. Andrea Paola Tenorio Chamba</h3>
-            <p class="text-sm text-blue-600 mb-3">Médica</p>
-            <p class="text-sm text-slate-600">Andrea (Pao) trabaja como médica desde mayo de 2022. Junto con Carolien y Jacob atiende a los pacientes en la consulta externa y en las salas de hospitalización.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Dra. Priscila Chacón de la Portilla</h3>
-            <p class="text-sm text-blue-600 mb-3">Médica</p>
-            <p class="text-sm text-slate-600">Priscila trabaja como médica desde finales de febrero de 2025. Con la apertura de quirófano y sala de partos, apoya en la atención continua en las salas de hospitalización.</p>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h2 class="font-bold text-2xl text-gray-800 mb-6">Técnicas de Laboratorio</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">María Vanessa Dávila Campos</h3>
-            <p class="text-sm text-blue-600 mb-3">Laboratorista</p>
-            <p class="text-sm text-slate-600">Vanessa trabaja como laboratorista desde julio de 2022. Junto con Jacob realiza la mayoría de las pruebas diagnósticas del laboratorio y apoya también en investigaciones.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Patricia Picón Nadales</h3>
-            <p class="text-sm text-blue-600 mb-3">Laboratorista</p>
-            <p class="text-sm text-slate-600">Patricia trabaja desde febrero de 2025 como laboratorista a medio tiempo. Apoya en momentos de alta demanda o cuando otros colegas están ausentes.</p>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h2 class="font-bold text-2xl text-gray-800 mb-6">Enfermeros</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Andrea Díaz Sáenz</h3>
-            <p class="text-sm text-blue-600 mb-3">Auxiliar de Enfermería</p>
-            <p class="text-sm text-slate-600">Andrea trabaja como auxiliar de enfermería desde el primer día de apertura del Hospital San Miguel. Ha acompañado todo el crecimiento desde consultorio hasta hospital completo.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Gladys Mamallacta Andi</h3>
-            <p class="text-sm text-blue-600 mb-3">Auxiliar de Enfermería</p>
-            <p class="text-sm text-slate-600">Gladys se unió al equipo en febrero de 2022 como auxiliar de enfermería. Actualmente está en formación para convertirse en licenciada en enfermería.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Jessica Rodríguez Valencia</h3>
-            <p class="text-sm text-blue-600 mb-3">Licenciada en Enfermería</p>
-            <p class="text-sm text-slate-600">Jessica comenzó en julio de 2023 como licenciada en enfermería. Atiende a los pacientes hospitalizados y también colabora en la consulta externa.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Gema Karolina Zambrano García</h3>
-            <p class="text-sm text-blue-600 mb-3">Licenciada en Enfermería</p>
-            <p class="text-sm text-slate-600">Gema trabaja como licenciada en enfermería desde julio de 2023. Brinda atención tanto en las salas de hospitalización como en la consulta externa.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Angelo Xavier Reyes Barco</h3>
-            <p class="text-sm text-blue-600 mb-3">Licenciado en Enfermería</p>
-            <p class="text-sm text-slate-600">Angelo forma parte del equipo desde agosto de 2023 como licenciado en enfermería, con turnos en hospitalización y apoyo en urgencias.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Karen Jurado Tamba</h3>
-            <p class="text-sm text-blue-600 mb-3">Licenciada en Enfermería</p>
-            <p class="text-sm text-slate-600">Karen se integró en abril de 2024 como licenciada en enfermería. Participa en la atención continua y colabora también en emergencias y procedimientos quirúrgicos.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Elvis David Salazar Iles</h3>
-            <p class="text-sm text-blue-600 mb-3">Auxiliar de Enfermería</p>
-            <p class="text-sm text-slate-600">Elvis comenzó en el hospital como contratista de obras, encargado de las remodelaciones. Más tarde inició su formación como auxiliar de enfermería y actualmente forma parte activa del equipo de salud.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Mercedes Lidia Dagua Noteno</h3>
-            <p class="text-sm text-blue-600 mb-3">Auxiliar de Enfermería</p>
-            <p class="text-sm text-slate-600">Mercedes trabaja desde marzo de 2025 como auxiliar de enfermería en modalidad de turnos flexibles, ayudando según la necesidad del equipo.</p>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h2 class="font-bold text-2xl text-gray-800 mb-6">Administración, Recepción y Limpieza</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Rosa Elvira Pérez Tobar</h3>
-            <p class="text-sm text-blue-600 mb-3">Recepcionista y Administración</p>
-            <p class="text-sm text-slate-600">Rosa trabaja desde el primer día como recepcionista del hospital. Tras finalizar una maestría en administración hospitalaria, también se encarga de tareas administrativas.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Ámbar Villafuerte Pazmiño</h3>
-            <p class="text-sm text-blue-600 mb-3">Recepcionista</p>
-            <p class="text-sm text-slate-600">Ámbar comenzó como recepcionista en febrero de 2024 y ha asumido más funciones en recepción mientras Rosa apoya en la administración.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Martha Lidia Arimuya Tanguila</h3>
-            <p class="text-sm text-blue-600 mb-3">Personal de Limpieza</p>
-            <p class="text-sm text-slate-600">Martha trabaja como personal de limpieza desde la apertura del hospital y también se encargó de preparar y limpiar todo el equipo recibido desde el extranjero.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Marilú Isabel Calderón Hidalgo</h3>
-            <p class="text-sm text-blue-600 mb-3">Personal de Limpieza</p>
-            <p class="text-sm text-slate-600">Marilú se integró en marzo de 2023 como personal de limpieza. Apoya en el aseo general del hospital y el manejo de ropa hospitalaria.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 class="font-semibold text-lg text-gray-800">Maribel Magalí Chacón Aguilar</h3>
-            <p class="text-sm text-blue-600 mb-3">Personal de Limpieza y Cocina</p>
-            <p class="text-sm text-slate-600">Magalí forma parte del equipo de limpieza desde mayo de 2024. Además, se encarga de preparar las comidas sanas para los pacientes hospitalizados.</p>
-          </div>
-        </div>
-      </div>
+        );
+      })}
     </div>
   </Container>
 </Layout>
