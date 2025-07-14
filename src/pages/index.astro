@@ -2,16 +2,62 @@
 import Container from "@/components/container.astro";
 import Cta from "@/components/cta.astro";
 import Features from "@/components/features.astro";
-import Hero from "@/components/hero.astro";
+import Hero from "@/components/heroImage.astro";
 import Logos from "@/components/logos.astro";
 import Layout from "@/layouts/Layout.astro";
+import Sectionhead from "@/components/sectionhead.astro";
 ---
 
-<Layout title="">
+<Layout title="Hospital San Miguel - Quina Care">
+  <Hero />
   <Container>
-    <Hero />
-    <Features />
-    <Logos />
-    <Cta />
+    <div class="flex flex-col gap-8 mx-auto max-w-4xl mt-20 mb-16">
+      <div class="text-center">
+        <h2 class="font-bold text-4xl lg:text-5xl text-gray-800 mb-6">
+          Bienvenidos al Hospital San Miguel
+        </h2>
+        <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+          Atención médica de calidad para toda la región del Putumayo
+        </p>
+      </div>
+      
+      <div class="grid gap-8 text-center">
+        <div class="bg-blue-50 p-8 rounded-lg">
+          <p class="text-lg leading-relaxed text-slate-700 mb-4">
+            El Hospital San Miguel, ubicado en Puerto el Carmen, Ecuador, ofrece atención médica a todos los habitantes de la región del Putumayo, vengan de Ecuador, Colombia, Perú u otros lugares. Nuestro objetivo es hacer que la atención de calidad sea accesible para todos los que la necesiten.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-sm border">
+            <h3 class="font-semibold text-xl text-gray-800 mb-3">Nuestro Equipo</h3>
+            <p class="text-base leading-relaxed text-slate-600">
+              Contamos con un equipo de médicos, enfermeros, laboratoristas y personal de apoyo, tanto locales como internacionales, para mantener la atención disponible para todos.
+            </p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-lg shadow-sm border">
+            <h3 class="font-semibold text-xl text-gray-800 mb-3">Nuestros Servicios</h3>
+            <p class="text-base leading-relaxed text-slate-600">
+              Ofrecemos atención de emergencia las 24 horas, hospitalización, consultas externas, partos, cirugías, laboratorio, radiología y farmacia.
+            </p>
+          </div>
+        </div>
+        
+        <div class="bg-green-50 p-6 rounded-lg">
+          <p class="text-lg leading-relaxed text-slate-700 font-medium">
+            Toda atención médica se brinda con respeto a la privacidad del paciente y bajo estricta confidencialidad profesional.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="my-20">
+      <Features />
+    </div>
+    
+    <div class="mt-20">
+      <Cta />
+    </div>
   </Container>
 </Layout>

@@ -6,58 +6,53 @@ import PricingCard from "@/components/pricing.astro";
 
 const pricing = [
   {
-    name: "Personal",
-    price: "Free",
+    name: "Consultas Médicas",
+    price: "Desde $2.50",
     popular: false,
     features: [
-      "Lifetime free",
-      "Up to 3 users",
-      "Unlimited Pages",
-      "Astro Sub domain",
-      "Basic Integrations",
-      "Community Support",
+      "Consulta general: $5.00",
+      "Consulta niño: $2.50",
+      "Consulta embarazada: $2.50",
+      "Atención en español",
+      "Personal local e internacional",
+      "Horarios flexibles",
     ],
     button: {
-      text: "Get Started",
-      link: "/",
+      text: "Reservar Cita",
+      link: "/contact",
     },
   },
   {
-    name: "Startup",
-    price: {
-      monthly: "$19",
-      annual: "$16",
-      discount: "10%",
-      original: "$24",
-    },
+    name: "Emergencias",
+    price: "$15.00",
     popular: true,
     features: [
-      "All Free Features",
-      "Up to 20 users",
-      "20 Custom domains",
-      "Unlimited Collaborators",
-      "Advanced Integrations",
-      "Priority Support",
+      "Atención 24 horas",
+      "Los 7 días de la semana",
+      "Equipo médico especializado",
+      "Estabilización rápida",
+      "Laboratorio disponible",
+      "Radiología de emergencia",
     ],
     button: {
-      text: "Get Started",
-      link: "#",
+      text: "Información",
+      link: "/contact",
     },
   },
   {
-    name: "Enterprise",
-    price: "Custom",
+    name: "Hospitalización",
+    price: "$15.00/noche",
     popular: false,
     features: [
-      "All Pro Features",
-      "Unlimited Custom domains",
-      "99.99% Uptime SLA",
-      "SAML & SSO Integration",
-      "Dedicated Account Manager",
-      "24/7 Phone Support",
+      "Salas para hombres, mujeres y niños",
+      "Sala para embarazadas",
+      "Disponible 24/7",
+      "Comidas incluidas",
+      "Atención de enfermería",
+      "Visitas médicas diarias",
     ],
     button: {
-      text: "Contact us",
+      text: "Consultar",
       link: "/contact",
     },
   },
@@ -67,11 +62,36 @@ const pricing = [
 <Layout title="Pricing">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Pricing</Fragment>
+      <Fragment slot="title">Servicios Médicos y Tarifas</Fragment>
       <Fragment slot="desc">
-        Simple & Predictable pricing. No Surprises.
+        Ofrecemos atención médica de calidad a precios accesibles para toda la comunidad.
       </Fragment>
     </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-8 mb-12">
+      <div class="bg-blue-50 p-6 rounded-lg">
+        <h3 class="font-bold text-lg text-gray-800 mb-3">Servicios Adicionales</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <h4 class="font-semibold text-gray-700">Laboratorio</h4>
+            <p class="text-sm text-slate-600">Pruebas de orina, heces y sangre</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-700">Radiología</h4>
+            <p class="text-sm text-slate-600">Radiografías y ecografías</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-700">Farmacia</h4>
+            <p class="text-sm text-slate-600">Medicamentos esenciales</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-700">Cirugías</h4>
+            <p class="text-sm text-slate-600">Procedimientos seleccionados</p>
+          </div>
+        </div>
+        <p class="text-sm text-slate-500 mt-4">*Para estudios solicitados por cuenta propia, se aplican tarifas comerciales más altas.</p>
+      </div>
+    </div>
 
     <div
       class="grid md:grid-cols-3 gap-10 mx-auto max-w-(--breakpoint-lg) mt-12">

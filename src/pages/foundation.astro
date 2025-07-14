@@ -1,0 +1,83 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+---
+
+<Layout title="Fundación QuinaCare">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Fundación QuinaCare</Fragment>
+      <Fragment slot="desc">Conoce más sobre nuestra organización sin fines de lucro.</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-8 mx-auto max-w-4xl mt-16">
+      <div class="bg-blue-50 p-8 rounded-lg">
+        <h2 class="font-bold text-3xl text-gray-800 mb-6">
+          Sobre la Fundación QuinaCare
+        </h2>
+        <p class="text-lg leading-relaxed text-slate-700 mb-4">
+          La Fundación QuinaCare fue creada por el Dr. Jacob van der Ende y la Dra. Carolien Bouwman con el objetivo de fundar el Hospital San Miguel. Es una organización sin fines de lucro que trabaja para mejorar el acceso a la salud en la región del Putumayo.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-sm border">
+          <h3 class="font-semibold text-xl text-gray-800 mb-4">Presencia Internacional</h3>
+          <p class="text-base leading-relaxed text-slate-600 mb-4">
+            La fundación tiene sedes en Ecuador, los Países Bajos y Estados Unidos. Desde estos tres países se gestionan la financiación del hospital y el pago del personal, principalmente gracias a donaciones.
+          </p>
+          <ul class="list-disc list-inside text-slate-600 space-y-2">
+            <li>Ecuador: Operaciones locales</li>
+            <li>Países Bajos: Sede principal</li>
+            <li>Estados Unidos: Recaudación de fondos</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border">
+          <h3 class="font-semibold text-xl text-gray-800 mb-4">Nuestro Equipo</h3>
+          <p class="text-base leading-relaxed text-slate-600 mb-4">
+            Más de 25 personas colaboran casi a diario con tareas administrativas, gestión de fondos, planificación y apoyo general. Todo este esfuerzo se realiza para garantizar una atención médica accesible y de calidad para todos los habitantes de la región.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-green-50 p-8 rounded-lg">
+        <h3 class="font-semibold text-xl text-gray-800 mb-4">Nuestra Misión</h3>
+        <p class="text-lg leading-relaxed text-slate-700 mb-4">
+          Trabajamos para mejorar el acceso a la salud en la región del Putumayo, proporcionando atención médica de calidad y accesible a todos los que la necesiten, independientemente de su origen o capacidad económica.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-sm border">
+        <h3 class="font-semibold text-xl text-gray-800 mb-4">Financiación</h3>
+        <p class="text-base leading-relaxed text-slate-600 mb-4">
+          Como organización sin fines de lucro, dependemos completamente del apoyo de donaciones y organizaciones benéficas. Esto nos permite mantener los precios de nuestros servicios médicos lo más bajos posible para servir mejor a nuestra comunidad.
+        </p>
+        <div class="bg-blue-100 p-4 rounded-lg">
+          <p class="text-sm text-blue-800">
+            <strong>¿Quieres apoyar nuestra causa?</strong> Contacta con nosotros para conocer más sobre cómo puedes contribuir a mejorar la salud en la región del Putumayo.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-yellow-50 p-8 rounded-lg">
+        <h3 class="font-semibold text-xl text-gray-800 mb-4">Nuestros Fundadores</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-2">Dr. Jacob van der Ende</h4>
+            <p class="text-sm text-slate-600">
+              Cofundador de la Fundación Quina Care. Trabaja como médico y técnico de laboratorio, y es el director ejecutivo del hospital.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-2">Dra. Carolien Bouwman</h4>
+            <p class="text-sm text-slate-600">
+              Cofundadora de la Fundación Quina Care. Además de su trabajo como médica, realiza tareas organizativas y administrativas para la fundación.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Layout>

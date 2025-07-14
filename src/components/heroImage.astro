@@ -1,0 +1,18 @@
+---
+import { Picture } from "astro:assets";
+import heroImage from "@/assets/hospital.jpg";
+import Link from "@/components/ui/link.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<main class="grid lg:grid-cols-1 place-items-center pb-6 md:pb-12">
+  <div class="block">
+    <Picture
+      src={heroImage}
+      alt="Astronaut in the air"
+      widths={[200, 400, 600, 1200]}
+      loading="eager"
+      format="avif"
+    />
+  </div>
+</main>
