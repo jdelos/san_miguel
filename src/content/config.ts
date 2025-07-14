@@ -51,78 +51,7 @@ const servicesCollection = defineCollection({
   }),
 });
 
-const homepageCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/homepage' }),
-  schema: ({ image }) => z.object({
-    heroImage: image(),
-    heroImageAlt: z.string(),
-    title: z.string(),
-    subtitle: z.string(),
-    welcomeTitle: z.string(),
-    welcomeDescription: z.string(),
-    teamSectionTitle: z.string(),
-    teamSectionDescription: z.string(),
-    servicesSectionTitle: z.string(),
-    servicesSectionDescription: z.string(),
-    privacyNotice: z.string(),
-    servicesTitle: z.string(),
-    servicesDescription: z.string(),
-  }),
-});
-
-const aboutCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/about' }),
-  schema: z.object({
-    pageTitle: z.string(),
-    pageDescription: z.string(),
-    historyTitle: z.string(),
-    historyContent: z.string(),
-    fundingTitle: z.string(),
-    fundingContent: z.string(),
-    locationTitle: z.string(),
-    locationContent: z.string(),
-    researchTitle: z.string(),
-    researchContent: z.string(),
-  }),
-});
-
-const foundationCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/foundation' }),
-  schema: z.object({
-    pageTitle: z.string(),
-    pageDescription: z.string(),
-    mainTitle: z.string(),
-    mainContent: z.string(),
-    internationalTitle: z.string(),
-    internationalContent: z.string(),
-    teamTitle: z.string(),
-    teamContent: z.string(),
-    missionTitle: z.string(),
-    missionContent: z.string(),
-    fundingTitle: z.string(),
-    fundingContent: z.string(),
-    supportCallToAction: z.string(),
-    foundersTitle: z.string(),
-    jacobTitle: z.string(),
-    jacobDescription: z.string(),
-    carolienTitle: z.string(),
-    carolienDescription: z.string(),
-  }),
-});
-
-const siteSettingsCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/settings' }),
-  schema: z.object({
-    siteName: z.string(),
-    siteDescription: z.string(),
-    contactEmail: z.string(),
-    contactPhone: z.string(),
-    address: z.string(),
-    socialMedia: z.array(z.string()).optional(),
-    emergencyHours: z.string(),
-    consultationHours: z.string(),
-  }),
-});
+// Note: Singletons are handled directly by Keystatic, not by Astro content collections
 
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
@@ -130,8 +59,4 @@ export const collections = {
   'blog': blogCollection,
   'team': teamCollection,
   'services': servicesCollection,
-  'homepage': homepageCollection,
-  'about': aboutCollection,
-  'foundation': foundationCollection,
-  'settings': siteSettingsCollection,
 };

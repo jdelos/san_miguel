@@ -167,8 +167,7 @@ export default config({
   singletons: {
     homepage: singleton({
       label: 'Homepage Content',
-      path: 'src/content/homepage',
-      format: { data: 'yaml' },
+      path: 'src/content/homepage/index',
       schema: {
         heroImage: fields.image({
           label: 'Hero Image',
@@ -234,8 +233,7 @@ export default config({
 
     about: singleton({
       label: 'About Page',
-      path: 'src/content/about',
-      format: { data: 'yaml' },
+      path: 'src/content/about/index',
       schema: {
         pageTitle: fields.text({ 
           label: 'Page Title',
@@ -287,8 +285,7 @@ export default config({
 
     foundation: singleton({
       label: 'Foundation Page',
-      path: 'src/content/foundation',
-      format: { data: 'yaml' },
+      path: 'src/content/foundation/index',
       schema: {
         pageTitle: fields.text({ 
           label: 'Page Title',
@@ -376,8 +373,7 @@ export default config({
 
     siteSettings: singleton({
       label: 'Site Settings',
-      path: 'src/content/settings',
-      format: { data: 'yaml' },
+      path: 'src/content/settings/index',
       schema: {
         siteName: fields.text({ 
           label: 'Site Name',

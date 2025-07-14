@@ -6,11 +6,10 @@ import Hero from "@/components/heroImage.astro";
 import Logos from "@/components/logos.astro";
 import Layout from "@/layouts/Layout.astro";
 import Sectionhead from "@/components/sectionhead.astro";
-import { getCollection } from 'astro:content';
+import { getHomepageData } from '../utils/keystatic';
 
 // Get homepage content
-const [homepageContent] = await getCollection('homepage');
-const homepage = homepageContent.data;
+const homepage = await getHomepageData();
 ---
 
 <Layout title="Hospital San Miguel - Quina Care">

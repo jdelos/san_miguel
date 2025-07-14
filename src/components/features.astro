@@ -2,6 +2,7 @@
 // @ts-ignore
 import { Icon } from "astro-icon/components";
 import { getCollection } from 'astro:content';
+import { getHomepageData } from '../utils/keystatic';
 
 // Get services from CMS
 const allServices = await getCollection('services');
@@ -17,8 +18,7 @@ const services = allServices
   }));
 
 // Get homepage content for section title and description
-const [homepageContent] = await getCollection('homepage');
-const homepage = homepageContent.data;
+const homepage = await getHomepageData();
 ---
 
 <div class="mt-16 md:mt-0">
