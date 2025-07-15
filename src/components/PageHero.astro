@@ -1,18 +1,13 @@
 ---
-import { getHeroData, getHeroConfig } from "../utils/heroData";
-
 interface Props {
-  page: "about" | "contact" | "pricing" | "foundation" | "team";
   title?: string;
   description?: string;
+  backgroundImage?: string;
+  backgroundImageAlt?: string;
   className?: string;
 }
 
-const { page, title, description, className = "" } = Astro.props;
-
-// Load hero settings from Keystatic
-const heroData = await getHeroData();
-const heroConfig = getHeroConfig(page, heroData);
+const { title, description, backgroundImage, backgroundImageAlt, className = "" } = Astro.props;
 
 // Branded color gradients using cross.svg colors
 const gradientClasses = "bg-gradient-to-r from-[#557B68] to-[#EE2D2E]";
@@ -23,11 +18,11 @@ const overlayClasses = "absolute inset-0 bg-black bg-opacity-30";
   class={`relative md:min-h-[400px] flex items-center justify-center ${className}`}>
   {/* Background - Image or Gradient */}
   {
-    heroConfig.type === "image" && heroConfig.image ? (
+    backgroundImage ? (
       <div class="absolute inset-0">
         <img
-          src={heroConfig.image}
-          alt={heroConfig.imageAlt}
+          src={backgroundImage}
+          alt={backgroundImageAlt || "Hero background"}
           class="w-full h-full object-cover"
         />
         <div class={overlayClasses} />

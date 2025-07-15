@@ -1,45 +1,43 @@
-hospitalName: Hospital San Miguel
-description: >-
-  Comprometidos con brindar la mejor atención médica con tecnología de
-  vanguardia y un equipo humano altamente especializado. Tu salud es nuestra
-  prioridad.
-emergencyNumber: '911'
-servicesTitle: Servicios
+hospitalName: "Hospital San Miguel"
+description: "Comprometidos con brindar la mejor atención médica con tecnología de vanguardia y un equipo humano altamente especializado. Tu salud es nuestra prioridad."
+emergencyNumber: "911"
+servicesTitle: "Servicios"
 serviceLinks:
-  - title: Medicina General
-    url: /services/medicina-general
+  - title: "Medicina General"
+    url: "/services/medicina-general"
     isExternal: false
-  - title: Cardiología
-    url: /services/cardiologia
+  - title: "Cardiología"
+    url: "/services/cardiologia"
     isExternal: false
-  - title: Neurología
-    url: /services/neurologia
+  - title: "Neurología"
+    url: "/services/neurologia"
     isExternal: false
-  - title: Pediatría
-    url: /services/pediatria
+  - title: "Pediatría"
+    url: "/services/pediatria"
     isExternal: false
-  - title: Urgencias
-    url: /services/urgencias
+  - title: "Urgencias"
+    url: "/services/urgencias"
     isExternal: false
-  - title: Laboratorio
-    url: /services/laboratorio
+  - title: "Laboratorio"
+    url: "/services/laboratorio"
     isExternal: false
-contactTitle: Contacto
-contactAddress: |-
-  Calle Principal 123
-  San Miguel, El Salvador
-contactPhone: +503 2345-6789
-contactEmail: info@hospitalsanmiguel.com
+contactTitle: "Contacto"
+contactAddress: |
+  Puerto el Carmen, Ecuador
+  Región del Putumayo
+  Antiguo internado del Colegio San Miguel
+contactPhone: "+593 6 2370 xxx"
+contactEmail: "info@hospitalsanmiguel.org"
 legalLinks:
-  - title: Política de Privacidad
-    url: /privacy
+  - title: "Política de Privacidad"
+    url: "/privacy"
     isExternal: false
-  - title: Términos de Servicio
-    url: /terms
+  - title: "Términos de Servicio"
+    url: "/terms"
     isExternal: false
-  - title: Derechos del Paciente
-    url: /patient-rights
+  - title: "Derechos del Paciente"
+    url: "/patient-rights"
     isExternal: false
-copyrightText: Hospital San Miguel. Todos los derechos reservados.
-licenseInfo: 'Licencia Sanitaria: LS-2024-001 | Registro Nacional: RN-HSM-2024'
-accreditationInfo: Acreditado por el Ministerio de Salud de El Salvador
+copyrightText: "Hospital San Miguel. Todos los derechos reservados."
+licenseInfo: "Licencia Sanitaria: LS-2024-001 | Registro Nacional: RN-HSM-2024"
+accreditationInfo: "Acreditado por el Ministerio de Salud de Ecuador"

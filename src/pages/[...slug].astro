@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import ModularPage from '@/components/ModularPage.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  
+  return pages
+    .filter(page => page.data.isPublished)
+    .map(page => ({
+      params: { slug: page.data.slug },
+      props: { page },
+    }));
+}
+
+const { page } = Astro.props;
+---
+
+<ModularPage page={page} />

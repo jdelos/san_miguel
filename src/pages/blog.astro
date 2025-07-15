@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
@@ -15,21 +15,18 @@ const publishedBlogEntries = await getCollection("blog", ({ data }) => {
 publishedBlogEntries.sort(function (a, b) {
   return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
 });
-
-const blogPageData = await getEntry('blogPage', 'index');
 ---
 
 <Layout title="Blog">
   <PageHero 
-    page="team" 
-    title={blogPageData.data.heroTitle} 
-    description={blogPageData.data.heroDescription}
+    title="Blog" 
+    description="Noticias y actualizaciones del Hospital San Miguel"
   />
   <Container>
     <Sectionhead>
-      <Fragment slot="title">{blogPageData.data.pageTitle}</Fragment>
+      <Fragment slot="title">Últimas Noticias</Fragment>
       <Fragment slot="desc">
-        {blogPageData.data.pageDescription}
+        Mantente informado sobre las últimas noticias, eventos y actualizaciones del Hospital San Miguel.
       </Fragment>
     </Sectionhead>
     <main class="mt-16">

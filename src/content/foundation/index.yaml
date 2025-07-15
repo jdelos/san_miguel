@@ -1,23 +1,15 @@
-pageTitle: Fundación QuinaCare
-pageDescription: Conoce más sobre nuestra organización sin fines de lucro.
-mainTitle: Sobre la Fundación QuinaCare
-mainContent: La Fundación QuinaCare fue creada por el Dr. Jacob van der Ende y la Dra. Carolien Bouwman con el objetivo de fundar el Hospital San Miguel. Es una organización sin fines de lucro que trabaja para mejorar el acceso a la salud en la región del Putumayo.
-internationalTitle: Presencia Internacional
-internationalContent: |
-  La fundación tiene sedes en Ecuador, los Países Bajos y Estados Unidos. Desde estos tres países se gestionan la financiación del hospital y el pago del personal, principalmente gracias a donaciones.
-
-  • Ecuador: Operaciones locales
-  • Países Bajos: Sede principal  
-  • Estados Unidos: Recaudación de fondos
-teamTitle: Nuestro Equipo
-teamContent: Más de 25 personas colaboran casi a diario con tareas administrativas, gestión de fondos, planificación y apoyo general. Todo este esfuerzo se realiza para garantizar una atención médica accesible y de calidad para todos los habitantes de la región.
-missionTitle: Nuestra Misión
-missionContent: Trabajamos para mejorar el acceso a la salud en la región del Putumayo, proporcionando atención médica de calidad y accesible a todos los que la necesiten, independientemente de su origen o capacidad económica.
-fundingTitle: Financiación
-fundingContent: Como organización sin fines de lucro, dependemos completamente del apoyo de donaciones y organizaciones benéficas. Esto nos permite mantener los precios de nuestros servicios médicos lo más bajos posible para servir mejor a nuestra comunidad.
-supportCallToAction: "¿Quieres apoyar nuestra causa? Contacta con nosotros para conocer más sobre cómo puedes contribuir a mejorar la salud en la región del Putumayo."
-foundersTitle: Nuestros Fundadores
-jacobTitle: Dr. Jacob van der Ende
-jacobDescription: Cofundador de la Fundación Quina Care. Trabaja como médico y técnico de laboratorio, y es el director ejecutivo del hospital.
-carolienTitle: Dra. Carolien Bouwman
-carolienDescription: Cofundadora de la Fundación Quina Care. Además de su trabajo como médica, realiza tareas organizativas y administrativas para la fundación.
+title: "Fundación QuinaCare"
+description: "Conoce más sobre nuestra organización sin fines de lucro"
+foundationName: "Fundación QuinaCare"
+foundationDescription: "La Fundación QuinaCare fue creada por el Dr. Jacob van der Ende y la Dra. Carolien Bouwman con el objetivo de fundar el Hospital San Miguel. Es una organización sin fines de lucro que trabaja para mejorar el acceso a la salud en la región del Putumayo."
+internationalPresence: "La fundación tiene sedes en Ecuador, los Países Bajos y Estados Unidos. Desde estos tres países se gestionan la financiación del hospital y el pago del personal, principalmente gracias a donaciones."
+teamSize: "Más de 25 personas colaboran casi a diario con tareas administrativas, gestión de fondos, planificación y apoyo general."
+mission: "Trabajamos para mejorar el acceso a la salud en la región del Putumayo, proporcionando atención médica de calidad y accesible a todos los que la necesiten, independientemente de su origen o capacidad económica."
+funding: "Como organización sin fines de lucro, dependemos completamente del apoyo de donaciones y organizaciones benéficas. Esto nos permite mantener los precios de nuestros servicios médicos lo más bajos posible para servir mejor a nuestra comunidad."
+founders:
+  - name: "Dr. Jacob van der Ende"
+    role: "Cofundador y Director Ejecutivo"
+    description: "Trabaja como médico y técnico de laboratorio, y es el director ejecutivo del hospital."
+  - name: "Dra. Carolien Bouwman"
+    role: "Cofundadora"
+    description: "Además de su trabajo como médica, realiza tareas organizativas y administrativas para la fundación."

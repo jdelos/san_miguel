@@ -51,155 +51,33 @@ const servicesCollection = defineCollection({
   }),
 });
 
-// Singleton collections for Keystatic content
-const homepageCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yml,yaml}', base: './src/content/homepage' }),
+// Settings collection for global site settings
+const settingsCollection = defineCollection({
+  loader: glob({ pattern: '**/*.{yml,yaml}', base: './src/content/settings' }),
   schema: z.object({
-    heroImage: z.string(),
-    heroImageAlt: z.string(),
-    title: z.string(),
-    subtitle: z.string(),
-    welcomeTitle: z.string(),
-    welcomeDescription: z.string(),
-    teamSectionTitle: z.string(),
-    teamSectionDescription: z.string(),
-    servicesSectionTitle: z.string(),
-    servicesSectionDescription: z.string(),
-    privacyNotice: z.string(),
-    servicesTitle: z.string(),
-    servicesDescription: z.string(),
-  }),
-});
-
-const aboutCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yml,yaml}', base: './src/content/about' }),
-  schema: z.object({
-    pageTitle: z.string(),
-    pageDescription: z.string(),
-    historyTitle: z.string(),
-    historyContent: z.string(),
-    fundingTitle: z.string(),
-    fundingContent: z.string(),
-    locationTitle: z.string(),
-    locationContent: z.string(),
-    researchTitle: z.string(),
-    researchContent: z.string(),
-  }),
-});
-
-const foundationCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yml,yaml}', base: './src/content/foundation' }),
-  schema: z.object({
-    pageTitle: z.string(),
-    pageDescription: z.string(),
-    mainTitle: z.string(),
-    mainContent: z.string(),
-    internationalTitle: z.string(),
-    internationalContent: z.string(),
-    teamTitle: z.string(),
-    teamContent: z.string(),
-    missionTitle: z.string(),
-    missionContent: z.string(),
-    fundingTitle: z.string(),
-    fundingContent: z.string(),
-    supportCallToAction: z.string(),
-    foundersTitle: z.string(),
-    jacobTitle: z.string(),
-    jacobDescription: z.string(),
-    carolienTitle: z.string(),
-    carolienDescription: z.string(),
-  }),
-});
-
-const contactCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yml,yaml}', base: './src/content/contact' }),
-  schema: z.object({
-    heroTitle: z.string(),
-    heroDescription: z.string(),
-    pageTitle: z.string(),
-    pageDescription: z.string(),
-    hospitalTitle: z.string(),
-    hospitalDescription: z.string(),
-    contactInfoTitle: z.string(),
-    hospitalName: z.string(),
-    hospitalAddress: z.string(),
+    siteName: z.string(),
+    siteDescription: z.string(),
     contactEmail: z.string(),
     contactPhone: z.string(),
-    operatingHoursTitle: z.string(),
-    mondayToFriday: z.string(),
-    saturdayHours: z.string(),
-    sundayHours: z.string(),
-    emergencyHours: z.string(),
-    locationTitle: z.string(),
-    mapEmbedUrl: z.string(),
-    mapTitle: z.string(),
+    address: z.string(),
   }),
 });
 
-const pricingCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yml,yaml}', base: './src/content/pricing' }),
+// Pages collection schema
+const pagesCollection = defineCollection({
+  loader: glob({ pattern: '**/*.{mdx,md}', base: './src/content/pages' }),
   schema: z.object({
+    slug: z.string(),
+    title: z.string(),
     heroTitle: z.string(),
     heroDescription: z.string(),
-    additionalServicesTitle: z.string(),
-    laboratoryTitle: z.string(),
-    laboratoryDescription: z.string(),
-    radiologyTitle: z.string(),
-    radiologyDescription: z.string(),
-    pharmacyTitle: z.string(),
-    pharmacyDescription: z.string(),
-    surgeryTitle: z.string(),
-    surgeryDescription: z.string(),
-    priceDisclaimer: z.string(),
-    pricingCards: z.array(z.object({
-      name: z.string(),
-      price: z.string(),
-      popular: z.boolean(),
-      features: z.array(z.string()),
-      buttonText: z.string(),
-      buttonLink: z.string(),
-    })),
-  }),
-});
-
-const teamPageCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yml,yaml}', base: './src/content/teamPage' }),
-  schema: z.object({
-    heroTitle: z.string(),
-    heroDescription: z.string(),
-    pageTitle: z.string(),
-    pageDescription: z.string(),
-  }),
-});
-
-const blogPageCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yml,yaml}', base: './src/content/blogPage' }),
-  schema: z.object({
-    heroTitle: z.string(),
-    heroDescription: z.string(),
-    pageTitle: z.string(),
-    pageDescription: z.string(),
-  }),
-});
-
-const pageHeroesCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yml,yaml}', base: './src/content/pageHeroes' }),
-  schema: z.object({
-    aboutHeroType: z.string(),
-    aboutHeroImage: z.string().nullable().optional(),
-    aboutHeroImageAlt: z.string().nullable().optional(),
-    contactHeroType: z.string(),
-    contactHeroImage: z.string().nullable().optional(),
-    contactHeroImageAlt: z.string().nullable().optional(),
-    pricingHeroType: z.string(),
-    pricingHeroImage: z.string().nullable().optional(),
-    pricingHeroImageAlt: z.string().nullable().optional(),
-    foundationHeroType: z.string(),
-    foundationHeroImage: z.string().nullable().optional(),
-    foundationHeroImageAlt: z.string().nullable().optional(),
-    teamHeroType: z.string(),
-    teamHeroImage: z.string().nullable().optional(),
-    teamHeroImageAlt: z.string().nullable().optional(),
+    heroBackgroundType: z.enum(['gradient', 'image']),
+    heroBackgroundImage: z.string().nullable().optional(),
+    heroBackgroundImageAlt: z.string().nullable().optional(),
+    blocks: z.array(z.any()),
+    isPublished: z.boolean().default(true),
+    order: z.number().default(1),
+    showInNavigation: z.boolean().default(true),
   }),
 });
 
@@ -209,12 +87,6 @@ export const collections = {
   'blog': blogCollection,
   'team': teamCollection,
   'services': servicesCollection,
-  'homepage': homepageCollection,
-  'about': aboutCollection,
-  'foundation': foundationCollection,
-  'contact': contactCollection,
-  'pricing': pricingCollection,
-  'teamPage': teamPageCollection,
-  'blogPage': blogPageCollection,
-  'pageHeroes': pageHeroesCollection,
+  'pages': pagesCollection,
+  'settings': settingsCollection,
 };
