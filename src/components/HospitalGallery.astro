@@ -1,0 +1,363 @@
+---
+// Hospital Gallery Component with Alternating Layout
+---
+
+<div class="mt-16">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-4">
+      Nuestras Instalaciones
+    </h2>
+    <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+      Conoce nuestras modernas instalaciones y departamentos especializados que brindan atención médica integral a la comunidad.
+    </p>
+  </div>
+
+  <!-- Pharmacy Section - Text Left, Images Right -->
+  <div class="mb-24">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Text Content -->
+      <div class="lg:pr-8">
+        <h3 class="text-3xl font-bold text-gray-800 mb-6">Farmacia</h3>
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+          Nuestra farmacia cuenta con un amplio inventario de medicamentos esenciales y está disponible las 24 horas del día. 
+        </p>
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+          Nuestro personal farmacéutico calificado garantiza la correcta dispensación y orientación sobre el uso de medicamentos.
+        </p>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span class="text-gray-700">Disponible 24/7</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span class="text-gray-700">Personal farmacéutico calificado</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span class="text-gray-700">Amplio inventario de medicamentos</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Images Grid -->
+      <div class="masonry-grid gap-4 columns-2">
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-pharmacy.IMG_2593.jpg" 
+              alt="Farmacia Hospital San Miguel" 
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-pharmacy.IMG_3078.jpg" 
+              alt="Interior Farmacia" 
+              class="w-full h-64 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-pharmacy.IMG_2860.jpg" 
+              alt="Dispensario Farmacia" 
+              class="w-full h-40 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2022.10.21-pharmacy-IMG_2299.jpg" 
+              alt="Farmacia Exterior" 
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-pharmacy.IMG_2849.jpg" 
+              alt="Almacén Farmacia" 
+              class="w-full h-40 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Laboratory Section - Images Left, Text Right -->
+  <div class="mb-24">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Images Grid -->
+      <div class="masonry-grid gap-4 columns-2 lg:order-1">
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-laboratorio.IMG_2551.jpg" 
+              alt="Laboratorio Hospital San Miguel" 
+              class="w-full h-56 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-laboratorio.IMG_2991.jpg" 
+              alt="Equipos Laboratorio" 
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-laboratorio.IMG_2818.jpg" 
+              alt="Área de Trabajo Laboratorio" 
+              class="w-full h-44 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-laboratorio.IMG_2989.jpg" 
+              alt="Microscopio Laboratorio" 
+              class="w-full h-56 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-laboratorio.IMG_2558.jpg" 
+              alt="Mesa Laboratorio" 
+              class="w-full h-44 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+      
+      <!-- Text Content -->
+      <div class="lg:pl-8 lg:order-2">
+        <h3 class="text-3xl font-bold text-gray-800 mb-6">Laboratorio</h3>
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+          Nuestro laboratorio clínico está equipado con tecnología moderna para realizar análisis de sangre, orina, heces y otros
+        </p>
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+          estudios diagnósticos. Contamos con personal técnico especializado que garantiza resultados precisos y confiables.
+        </p>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+            <span class="text-gray-700">Tecnología moderna</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+            <span class="text-gray-700">Personal técnico calificado</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+            <span class="text-gray-700">Resultados confiables</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Children's Ward Section - Text Left, Images Right -->
+  <div class="mb-24">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Text Content -->
+      <div class="lg:pr-8">
+        <h3 class="text-3xl font-bold text-gray-800 mb-6">Área Pediátrica</h3>
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+          Nuestro departamento pediátrico está especialmente diseñado para brindar cuidado especializado a los más pequeños. 
+        </p>
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+          Contamos con salas de internación cómodas y seguras, así como personal médico y de enfermería especializado en pediatría.
+        </p>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span class="text-gray-700">Especialistas en pediatría</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span class="text-gray-700">Salas seguras y cómodas</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span class="text-gray-700">Enfermería especializada</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Images Grid -->
+      <div class="masonry-grid gap-4 columns-2">
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-childrens-ward.IMG_2623.jpg" 
+              alt="Área Pediátrica" 
+              class="w-full h-52 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-childrens-ward.IMG_2747.jpg" 
+              alt="Sala Infantil" 
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-childrens-ward.IMG_2742.jpg" 
+              alt="Habitación Niños" 
+              class="w-full h-40 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-childrens-ward.IMG_2745.jpg" 
+              alt="Cuna Pediatría" 
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-childrens-ward.IMG_2746.jpg" 
+              alt="Sala Pediatría" 
+              class="w-full h-40 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reception Section - Images Left, Text Right -->
+  <div class="mb-24">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Images Grid -->
+      <div class="masonry-grid gap-4 columns-2 lg:order-1">
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-reception.IMG_2598.jpg" 
+              alt="Recepción Hospital" 
+              class="w-full h-56 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-reception.IMG_3076.jpg" 
+              alt="Área de Espera" 
+              class="w-full h-44 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-reception.IMG_2763.jpg" 
+              alt="Mostrador Recepción" 
+              class="w-full h-52 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="break-inside-avoid mb-4">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img 
+              src="https://www.quinacare.org/wp-content/uploads/2024/09/2023.07.26-reception.IMG_2586.jpg" 
+              alt="Ventanilla Recepción" 
+              class="w-full h-52 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+      
+      <!-- Text Content -->
+      <div class="lg:pl-8 lg:order-2">
+        <h3 class="text-3xl font-bold text-gray-800 mb-6">Recepción y Admisión</h3>
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+          Nuestro área de recepción y admisión está diseñada para brindar una experiencia cómoda y eficiente a nuestros pacientes. 
+        </p>
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+          Contamos con personal capacitado para el registro, programación de citas y orientación general sobre los servicios del hospital.
+        </p>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+            <span class="text-gray-700">Registro de pacientes</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+            <span class="text-gray-700">Programación de citas</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+            <span class="text-gray-700">Orientación de servicios</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .masonry-grid {
+    column-fill: balance;
+  }
+  
+  .masonry-grid img {
+    transition: transform 0.3s ease;
+  }
+  
+  .masonry-grid img:hover {
+    transform: scale(1.05);
+  }
+  
+  .masonry-grid .bg-white {
+    transition: shadow 0.3s ease;
+  }
+  
+  .masonry-grid .bg-white:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+</style>

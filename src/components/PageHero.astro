@@ -1,0 +1,81 @@
+---
+import { getHeroData, getHeroConfig } from "../utils/heroData";
+
+interface Props {
+  page: "about" | "contact" | "pricing" | "foundation" | "team";
+  title?: string;
+  description?: string;
+  className?: string;
+}
+
+const { page, title, description, className = "" } = Astro.props;
+
+// Load hero settings from Keystatic
+const heroData = await getHeroData();
+const heroConfig = getHeroConfig(page, heroData);
+
+// Branded color gradients using cross.svg colors
+const gradientClasses = "bg-gradient-to-r from-[#557B68] to-[#EE2D2E]";
+const overlayClasses = "absolute inset-0 bg-black bg-opacity-30";
+---
+
+<div
+  class={`relative md:min-h-[400px] flex items-center justify-center ${className}`}>
+  {/* Background - Image or Gradient */}
+  {
+    heroConfig.type === "image" && heroConfig.image ? (
+      <div class="absolute inset-0">
+        <img
+          src={heroConfig.image}
+          alt={heroConfig.imageAlt}
+          class="w-full h-full object-cover"
+        />
+        <div class={overlayClasses} />
+      </div>
+    ) : (
+      <div class={`absolute inset-0 hidden ${gradientClasses}`} />
+    )
+  }
+
+  {/* Content */}
+  <div
+    class="relative z-10 text-center grow p-2 md:p-8 md:px-10 max-w-4xl mx-auto bg-[#557B68] md:rounded-2xl shadow-2xl">
+    {
+      title && (
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+          {title}
+        </h1>
+      )
+    }
+
+    {
+      description && (
+        <p class="text-gl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+          {description}
+        </p>
+      )
+    }
+
+    <!-- {/* Decorative elements */}
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-red-500/20 rounded-full blur-2xl -z-10"></div>
+    <div class="absolute bottom-1/3 right-1/3 transform translate-x-1/2 translate-y-1/2 w-48 h-48 bg-green-500/20 rounded-full blur-xl -z-10"></div> -->
+  </div>
+</div>
+
+<style>
+  /* Custom animations */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+</style>

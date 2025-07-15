@@ -91,7 +91,7 @@ const addressLines = formatAddress(footerData.contactAddress);
           </p>
         </div>
         
-        <div class="flex items-center space-x-6">
+        <div class="flex items-center flex-wrap space-x-6">
           {footerData.legalLinks && footerData.legalLinks.map((link) => (
             <a 
               href={link.url} 
@@ -105,7 +105,6 @@ const addressLines = formatAddress(footerData.contactAddress);
           <button 
             id="cookie-settings-btn"
             class="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer"
-            onclick="if (window.showCookiePreferences) { window.showCookiePreferences(); } else { localStorage.removeItem('hospital-cookie-consent'); window.location.reload(); }"
           >
             Configuración de Cookies
           </button>
@@ -126,3 +125,28 @@ const addressLines = formatAddress(footerData.contactAddress);
     </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cookieSettingsBtn = document.getElementById('cookie-settings-btn');
+    if (cookieSettingsBtn) {
+      cookieSettingsBtn.addEventListener('click', function() {
+        // Try to use the global function first
+        if (window.showCookiePreferences) {
+          window.showCookiePreferences();
+        } else {
+          // Retry after a short delay in case the script hasn't loaded yet
+          setTimeout(function() {
+            if (window.showCookiePreferences) {
+              window.showCookiePreferences();
+            } else {
+              // Fallback: Clear storage and reload
+              localStorage.removeItem('hospital-cookie-consent');
+              window.location.reload();
+            }
+          }, 100);
+        }
+      });
+    }
+  });
+</script>

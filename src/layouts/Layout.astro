@@ -3,7 +3,7 @@ import { SEO } from "astro-seo";
 import Footer from "@/components/footer.astro";
 import Navbar from "@/components/navbar/navbar.astro";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics.astro";
-import CookieConsentSimple from "@/components/CookieConsentSimple.astro";
+import CookieConsent from "@/components/CookieConsent.astro";
 import { shouldEnableAnalytics, getGoogleAnalyticsId } from "@/config/analytics.ts";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
@@ -23,8 +23,8 @@ const resolvedImageWithDomain = new URL(
 const { title } = Astro.props;
 
 const makeTitle = title
-  ? title + " | " + "Astroship"
-  : "Astroship - Starter Template for Astro with Tailwind CSS";
+  ? title + " | " + "Hospital San Miguel"
+  : "Hospital San Miguel - Excelencia en Atención Médica | Putumayo, Ecuador";
 ---
 
 <!doctype html>
@@ -33,12 +33,14 @@ const makeTitle = title
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Astroship is a starter website template for Astro built with TailwindCSS."
+      description="Hospital San Miguel - Brindamos atención médica de excelencia las 24 horas en Putumayo, Ecuador. Servicios de emergencia, consultas médicas, hospitalización y más."
       canonical={canonicalURL}
       twitter={{
         creator: "@surjithctly",
@@ -49,11 +51,11 @@ const makeTitle = title
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Astroship - Starter Template for Astro`,
+          title: `Hospital San Miguel - Excelencia en Atención Médica`,
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Astroship Homepage Screenshot",
+          alt: "Hospital San Miguel - Atención Médica en Putumayo",
         },
       }}
     />
@@ -67,7 +69,7 @@ const makeTitle = title
     <Footer />
     
     <!-- Cookie Consent -->
-    <CookieConsentSimple />
+    <CookieConsent />
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */

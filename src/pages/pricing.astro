@@ -3,6 +3,8 @@ import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 import PricingCard from "@/components/pricing.astro";
+import HospitalGallery from "@/components/HospitalGallery.astro";
+import PageHero from "@/components/PageHero.astro";
 
 const pricing = [
   {
@@ -60,13 +62,13 @@ const pricing = [
 ---
 
 <Layout title="Pricing">
+  <PageHero 
+    page="pricing" 
+    title="Servicios Médicos y Tarifas" 
+    description="Ofrecemos atención médica de calidad a precios accesibles para toda la comunidad."
+  />
   <Container>
-    <Sectionhead>
-      <Fragment slot="title">Servicios Médicos y Tarifas</Fragment>
-      <Fragment slot="desc">
-        Ofrecemos atención médica de calidad a precios accesibles para toda la comunidad.
-      </Fragment>
-    </Sectionhead>
+
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-8 mb-12">
       <div class="bg-blue-50 p-6 rounded-lg">
@@ -97,5 +99,7 @@ const pricing = [
       class="grid md:grid-cols-3 gap-10 mx-auto max-w-(--breakpoint-lg) mt-12">
       {pricing.map((item) => <PricingCard plan={item} />)}
     </div>
+    
+    <HospitalGallery />
   </Container>
 </Layout>

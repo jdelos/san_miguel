@@ -415,6 +415,127 @@ export default config({
       },
     }),
 
+    pageHeroes: singleton({
+      label: 'Page Heroes',
+      path: 'src/content/pageHeroes/index',
+      schema: {
+        // About Page Hero
+        aboutHeroType: fields.select({
+          label: 'About Hero Type',
+          description: 'Choose between image or gradient background',
+          options: [
+            { label: 'Image', value: 'image' },
+            { label: 'Gradient', value: 'gradient' }
+          ],
+          defaultValue: 'gradient'
+        }),
+        aboutHeroImage: fields.image({
+          label: 'About Hero Image',
+          directory: 'src/assets/heroes',
+          publicPath: '/src/assets/heroes/',
+          validation: { isRequired: false },
+          description: 'Hero image for About page (only used if Image type is selected)'
+        }),
+        aboutHeroImageAlt: fields.text({ 
+          label: 'About Hero Image Alt Text',
+          description: 'Alternative text for accessibility',
+          validation: { isRequired: false }
+        }),
+        
+        // Contact Page Hero
+        contactHeroType: fields.select({
+          label: 'Contact Hero Type',
+          description: 'Choose between image or gradient background',
+          options: [
+            { label: 'Image', value: 'image' },
+            { label: 'Gradient', value: 'gradient' }
+          ],
+          defaultValue: 'gradient'
+        }),
+        contactHeroImage: fields.image({
+          label: 'Contact Hero Image',
+          directory: 'src/assets/heroes',
+          publicPath: '/src/assets/heroes/',
+          validation: { isRequired: false },
+          description: 'Hero image for Contact page (only used if Image type is selected)'
+        }),
+        contactHeroImageAlt: fields.text({ 
+          label: 'Contact Hero Image Alt Text',
+          description: 'Alternative text for accessibility',
+          validation: { isRequired: false }
+        }),
+        
+        // Pricing Page Hero
+        pricingHeroType: fields.select({
+          label: 'Pricing Hero Type',
+          description: 'Choose between image or gradient background',
+          options: [
+            { label: 'Image', value: 'image' },
+            { label: 'Gradient', value: 'gradient' }
+          ],
+          defaultValue: 'gradient'
+        }),
+        pricingHeroImage: fields.image({
+          label: 'Pricing Hero Image',
+          directory: 'src/assets/heroes',
+          publicPath: '/src/assets/heroes/',
+          validation: { isRequired: false },
+          description: 'Hero image for Pricing page (only used if Image type is selected)'
+        }),
+        pricingHeroImageAlt: fields.text({ 
+          label: 'Pricing Hero Image Alt Text',
+          description: 'Alternative text for accessibility',
+          validation: { isRequired: false }
+        }),
+        
+        // Foundation Page Hero
+        foundationHeroType: fields.select({
+          label: 'Foundation Hero Type',
+          description: 'Choose between image or gradient background',
+          options: [
+            { label: 'Image', value: 'image' },
+            { label: 'Gradient', value: 'gradient' }
+          ],
+          defaultValue: 'gradient'
+        }),
+        foundationHeroImage: fields.image({
+          label: 'Foundation Hero Image',
+          directory: 'src/assets/heroes',
+          publicPath: '/src/assets/heroes/',
+          validation: { isRequired: false },
+          description: 'Hero image for Foundation page (only used if Image type is selected)'
+        }),
+        foundationHeroImageAlt: fields.text({ 
+          label: 'Foundation Hero Image Alt Text',
+          description: 'Alternative text for accessibility',
+          validation: { isRequired: false }
+        }),
+        
+        // Team Page Hero
+        teamHeroType: fields.select({
+          label: 'Team Hero Type',
+          description: 'Choose between image or gradient background',
+          options: [
+            { label: 'Image', value: 'image' },
+            { label: 'Gradient', value: 'gradient' }
+          ],
+          defaultValue: 'gradient'
+        }),
+        teamHeroImage: fields.image({
+          label: 'Team Hero Image',
+          directory: 'src/assets/heroes',
+          publicPath: '/src/assets/heroes/',
+          validation: { isRequired: false },
+          description: 'Hero image for Team page (only used if Image type is selected)'
+        }),
+        teamHeroImageAlt: fields.text({ 
+          label: 'Team Hero Image Alt Text',
+          description: 'Alternative text for accessibility',
+          validation: { isRequired: false }
+        }),
+      },
+    }),
+
     footer: singleton({
       label: 'Footer Settings',
       path: 'src/content/footer/index',
@@ -537,7 +658,7 @@ export default config({
       name: 'Quina Care CMS',
     },
     navigation: {
-      'Content': ['homepage', 'about', 'foundation', 'siteSettings', 'footer'],
+      'Content': ['homepage', 'about', 'foundation', 'siteSettings', 'pageHeroes', 'footer'],
       'Team & Staff': ['team'],
       'Services': ['services'],
       'Blog': ['blog'],

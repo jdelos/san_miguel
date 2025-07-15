@@ -46,10 +46,10 @@ export const analyticsConfig = {
 ### What's Included
 
 - **GDPR Compliant**: Asks for user consent before tracking
-- **Bilingual**: Spanish and English support
+- **Spanish Language**: Fully translated interface
 - **Categorized Cookies**: Separate categories for necessary and analytics cookies
-- **Customizable**: Styled to match Hospital San Miguel branding
-- **Persistent**: Remembers user preferences
+- **Modern Design**: Clean, card-based design with Hospital San Miguel branding
+- **Persistent**: Remembers user preferences in localStorage
 
 ### How It Works
 
@@ -82,25 +82,26 @@ These pages are fully translated to Spanish and include relevant information abo
 
 ### Changing Colors
 
-The cookie consent modal uses CSS custom properties that can be customized in `src/components/CookieConsent.astro`:
+The cookie consent uses CSS classes that can be customized in `src/components/CookieConsent.astro`:
 
 ```css
-:root {
-  --cc-bg: #fff;
-  --cc-text: #2d3748;
-  --cc-btn-primary-bg: #EE2D2E; /* Hospital red */
-  --cc-btn-primary-hover-bg: #D11B1C;
-  /* ... other colors */
+.cookie-btn-primary {
+  background: #EE2D2E; /* Hospital red */
+  color: white;
+}
+
+.cookie-btn-primary:hover {
+  background: #D11B1C;
 }
 ```
 
 ### Modifying Text
 
-The cookie consent text can be modified in the `language.translations` section of `src/components/CookieConsent.astro`.
+The cookie consent text can be modified directly in the HTML section of `src/components/CookieConsent.astro`.
 
 ### Adding More Cookie Categories
 
-To add more cookie categories (e.g., marketing cookies), modify the `categories` section in the cookie consent configuration.
+To add more cookie categories, modify the HTML structure and JavaScript logic in `src/components/CookieConsent.astro`.
 
 ## Testing
 
@@ -129,15 +130,15 @@ To add more cookie categories (e.g., marketing cookies), modify the `categories`
 
 ### Cookie Consent Not Appearing
 
-1. **Check Browser**: Some ad blockers might block cookie consent scripts
-2. **Clear Storage**: Clear cookies and local storage, then reload
-3. **Check Console**: Look for JavaScript errors
+1. **Check Storage**: Clear localStorage with `localStorage.removeItem('hospital-cookie-consent')`
+2. **Check Console**: Look for JavaScript errors
+3. **Reload Page**: Banner should appear after clearing storage
 
 ### Custom Styling Not Working
 
-1. **CSS Import**: Make sure the vanilla-cookieconsent CSS is imported
-2. **Specificity**: You might need to increase CSS specificity
-3. **Check Variables**: Verify CSS custom properties are defined correctly
+1. **CSS Specificity**: Make sure your custom styles have higher specificity
+2. **Check Classes**: Verify CSS class names match those in the component
+3. **Browser Cache**: Clear browser cache and reload
 
 ## Legal Compliance
 
@@ -158,6 +159,7 @@ Make sure to:
 
 For issues or questions about this setup:
 1. Check the browser console for errors
-2. Review the vanilla-cookieconsent documentation
+2. Test cookie consent with `localStorage.removeItem('hospital-cookie-consent')`
 3. Verify your Google Analytics configuration
-4. Contact the development team if needed
+4. Review the component code in `src/components/CookieConsent.astro`
+5. Contact the development team if needed
