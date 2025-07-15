@@ -3,9 +3,11 @@ import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 import TeamCard from "@/components/TeamCard.astro";
-import { getCollection } from 'astro:content';
+import PageHero from "@/components/PageHero.astro";
+import { getCollection, getEntry } from 'astro:content';
 
 const teamMembers = await getCollection('team');
+const teamPageData = await getEntry('teamPage', 'index');
 
 const departments = [
   "Médicos",
@@ -16,10 +18,15 @@ const departments = [
 ---
 
 <Layout title="Nuestro Personal">
+  <PageHero 
+    page="team" 
+    title={teamPageData.data.heroTitle} 
+    description={teamPageData.data.heroDescription}
+  />
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Nuestro Personal</Fragment>
-      <Fragment slot="desc">Conoce a nuestro equipo médico y de apoyo comprometido con tu salud.</Fragment>
+      <Fragment slot="title">{teamPageData.data.pageTitle}</Fragment>
+      <Fragment slot="desc">{teamPageData.data.pageDescription}</Fragment>
     </Sectionhead>
 
     <div class="flex flex-col gap-8 mx-auto max-w-7xl mt-16">

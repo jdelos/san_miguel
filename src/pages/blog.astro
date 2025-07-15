@@ -1,9 +1,10 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import { Picture } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
+import PageHero from "@/components/PageHero.astro";
 
 // Filter blog entries with 'draft: false' & date before current date
 const publishedBlogEntries = await getCollection("blog", ({ data }) => {
@@ -14,14 +15,21 @@ const publishedBlogEntries = await getCollection("blog", ({ data }) => {
 publishedBlogEntries.sort(function (a, b) {
   return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
 });
+
+const blogPageData = await getEntry('blogPage', 'index');
 ---
 
 <Layout title="Blog">
+  <PageHero 
+    page="team" 
+    title={blogPageData.data.heroTitle} 
+    description={blogPageData.data.heroDescription}
+  />
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Our Blog</Fragment>
+      <Fragment slot="title">{blogPageData.data.pageTitle}</Fragment>
       <Fragment slot="desc">
-        We write about building startups and thoughts going on our mind.
+        {blogPageData.data.pageDescription}
       </Fragment>
     </Sectionhead>
     <main class="mt-16">

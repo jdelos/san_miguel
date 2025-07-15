@@ -536,6 +536,293 @@ export default config({
       },
     }),
 
+    contact: singleton({
+      label: 'Contact Page',
+      path: 'src/content/contact/index',
+      schema: {
+        // Hero Section
+        heroTitle: fields.text({ 
+          label: 'Hero Title',
+          description: 'Main title for the contact page hero',
+          defaultValue: 'Contacto'
+        }),
+        heroDescription: fields.text({ 
+          label: 'Hero Description',
+          description: 'Description for the contact page hero',
+          defaultValue: 'Estamos aquí para ayudarte con tu salud.'
+        }),
+        
+        // Page Content
+        pageTitle: fields.text({ 
+          label: 'Page Title',
+          description: 'Title for the contact page section',
+          defaultValue: 'Contacto'
+        }),
+        pageDescription: fields.text({ 
+          label: 'Page Description',
+          description: 'Description for the contact page section',
+          defaultValue: 'Estamos aquí para ayudarte con tu salud.'
+        }),
+        
+        // Hospital Information
+        hospitalTitle: fields.text({ 
+          label: 'Hospital Title',
+          description: 'Title for the hospital information section',
+          defaultValue: 'Hospital San Miguel'
+        }),
+        hospitalDescription: fields.text({ 
+          label: 'Hospital Description',
+          description: 'Description for the hospital information',
+          multiline: true,
+          defaultValue: '¿Necesitas atención médica o tienes preguntas? Estamos aquí para ayudarte. Completa el formulario o contáctanos directamente.'
+        }),
+        
+        // Contact Information Section
+        contactInfoTitle: fields.text({ 
+          label: 'Contact Information Title',
+          description: 'Title for the contact information section',
+          defaultValue: 'Información de Contacto'
+        }),
+        hospitalName: fields.text({ 
+          label: 'Hospital Name',
+          description: 'Name of the hospital',
+          defaultValue: 'Hospital San Miguel'
+        }),
+        hospitalAddress: fields.text({ 
+          label: 'Hospital Address',
+          description: 'Physical address of the hospital',
+          multiline: true,
+          defaultValue: 'Puerto El Carmen, Ecuador\nCoordenadas: 0.1165363, -75.8657967'
+        }),
+        contactEmail: fields.text({ 
+          label: 'Contact Email',
+          description: 'Contact email address',
+          defaultValue: 'contacto@quinacare.org'
+        }),
+        contactPhone: fields.text({ 
+          label: 'Contact Phone',
+          description: 'Contact phone number',
+          defaultValue: '+593-999-999999'
+        }),
+        
+        // Operating Hours Section
+        operatingHoursTitle: fields.text({ 
+          label: 'Operating Hours Title',
+          description: 'Title for the operating hours section',
+          defaultValue: 'Horarios de Atención'
+        }),
+        mondayToFriday: fields.text({ 
+          label: 'Monday to Friday Hours',
+          description: 'Operating hours for Monday to Friday',
+          defaultValue: '08:00 - 12:00 y 14:00 - 16:00'
+        }),
+        saturdayHours: fields.text({ 
+          label: 'Saturday Hours',
+          description: 'Operating hours for Saturday',
+          defaultValue: 'Cerrado'
+        }),
+        sundayHours: fields.text({ 
+          label: 'Sunday Hours',
+          description: 'Operating hours for Sunday',
+          defaultValue: '08:00 - 12:00'
+        }),
+        emergencyHours: fields.text({ 
+          label: 'Emergency Hours',
+          description: 'Emergency service hours',
+          defaultValue: '24/7'
+        }),
+        
+        // Location Section
+        locationTitle: fields.text({ 
+          label: 'Location Title',
+          description: 'Title for the location section',
+          defaultValue: 'Ubicación'
+        }),
+        mapEmbedUrl: fields.text({ 
+          label: 'Map Embed URL',
+          description: 'Google Maps embed URL for the hospital location',
+          defaultValue: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d995.2332111845547!2d-75.8664229!3d0.1164241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e278500325f573d%3A0x525352c18e9e7f55!2sHospital%20San%20Miguel!5e0!3m2!1ses!2sec!4v1737890000000!5m2!1ses!2sec'
+        }),
+        mapTitle: fields.text({ 
+          label: 'Map Title',
+          description: 'Title attribute for the map iframe',
+          defaultValue: 'Hospital San Miguel Location'
+        }),
+      },
+    }),
+    
+    pricing: singleton({
+      label: 'Pricing Page',
+      path: 'src/content/pricing/index',
+      schema: {
+        // Hero Section
+        heroTitle: fields.text({ 
+          label: 'Hero Title',
+          description: 'Main title for the pricing page hero',
+          defaultValue: 'Servicios Médicos y Tarifas'
+        }),
+        heroDescription: fields.text({ 
+          label: 'Hero Description',
+          description: 'Description for the pricing page hero',
+          defaultValue: 'Ofrecemos atención médica de calidad a precios accesibles para toda la comunidad.'
+        }),
+        
+        // Additional Services Section
+        additionalServicesTitle: fields.text({ 
+          label: 'Additional Services Title',
+          description: 'Title for the additional services section',
+          defaultValue: 'Servicios Adicionales'
+        }),
+        
+        // Service Items
+        laboratoryTitle: fields.text({ 
+          label: 'Laboratory Title',
+          description: 'Title for laboratory services',
+          defaultValue: 'Laboratorio'
+        }),
+        laboratoryDescription: fields.text({ 
+          label: 'Laboratory Description',
+          description: 'Description for laboratory services',
+          defaultValue: 'Pruebas de orina, heces y sangre'
+        }),
+        radiologyTitle: fields.text({ 
+          label: 'Radiology Title',
+          description: 'Title for radiology services',
+          defaultValue: 'Radiología'
+        }),
+        radiologyDescription: fields.text({ 
+          label: 'Radiology Description',
+          description: 'Description for radiology services',
+          defaultValue: 'Radiografías y ecografías'
+        }),
+        pharmacyTitle: fields.text({ 
+          label: 'Pharmacy Title',
+          description: 'Title for pharmacy services',
+          defaultValue: 'Farmacia'
+        }),
+        pharmacyDescription: fields.text({ 
+          label: 'Pharmacy Description',
+          description: 'Description for pharmacy services',
+          defaultValue: 'Medicamentos esenciales'
+        }),
+        surgeryTitle: fields.text({ 
+          label: 'Surgery Title',
+          description: 'Title for surgery services',
+          defaultValue: 'Cirugías'
+        }),
+        surgeryDescription: fields.text({ 
+          label: 'Surgery Description',
+          description: 'Description for surgery services',
+          defaultValue: 'Procedimientos seleccionados'
+        }),
+        
+        // Disclaimer
+        priceDisclaimer: fields.text({ 
+          label: 'Price Disclaimer',
+          description: 'Disclaimer text about commercial rates',
+          defaultValue: '*Para estudios solicitados por cuenta propia, se aplican tarifas comerciales más altas.'
+        }),
+        
+        // Pricing Cards
+        pricingCards: fields.array(
+          fields.object({
+            name: fields.text({ 
+              label: 'Service Name',
+              description: 'Name of the service package'
+            }),
+            price: fields.text({ 
+              label: 'Price',
+              description: 'Price for the service package'
+            }),
+            popular: fields.checkbox({
+              label: 'Popular',
+              description: 'Mark this package as popular',
+              defaultValue: false
+            }),
+            features: fields.array(
+              fields.text({ label: 'Feature' }),
+              {
+                label: 'Features',
+                itemLabel: props => props.value || 'Feature',
+              }
+            ),
+            buttonText: fields.text({ 
+              label: 'Button Text',
+              description: 'Text for the action button'
+            }),
+            buttonLink: fields.text({ 
+              label: 'Button Link',
+              description: 'Link for the action button'
+            }),
+          }),
+          {
+            label: 'Pricing Cards',
+            itemLabel: props => props.fields.name.value || 'Pricing Card',
+          }
+        ),
+      },
+    }),
+    
+    teamPage: singleton({
+      label: 'Team Page',
+      path: 'src/content/teamPage/index',
+      schema: {
+        // Hero Section
+        heroTitle: fields.text({ 
+          label: 'Hero Title',
+          description: 'Main title for the team page hero',
+          defaultValue: 'Nuestro Personal'
+        }),
+        heroDescription: fields.text({ 
+          label: 'Hero Description',
+          description: 'Description for the team page hero',
+          defaultValue: 'Conoce a nuestro equipo médico y de apoyo comprometido con tu salud.'
+        }),
+        
+        // Page Content
+        pageTitle: fields.text({ 
+          label: 'Page Title',
+          description: 'Title for the team page section',
+          defaultValue: 'Nuestro Personal'
+        }),
+        pageDescription: fields.text({ 
+          label: 'Page Description',
+          description: 'Description for the team page section',
+          defaultValue: 'Conoce a nuestro equipo médico y de apoyo comprometido con tu salud.'
+        }),
+      },
+    }),
+    
+    blogPage: singleton({
+      label: 'Blog Page',
+      path: 'src/content/blogPage/index',
+      schema: {
+        // Hero Section
+        heroTitle: fields.text({ 
+          label: 'Hero Title',
+          description: 'Main title for the blog page hero',
+          defaultValue: 'Nuestro Blog'
+        }),
+        heroDescription: fields.text({ 
+          label: 'Hero Description',
+          description: 'Description for the blog page hero',
+          defaultValue: 'Mantente informado sobre salud y noticias del hospital.'
+        }),
+        
+        // Page Content
+        pageTitle: fields.text({ 
+          label: 'Page Title',
+          description: 'Title for the blog page section',
+          defaultValue: 'Nuestro Blog'
+        }),
+        pageDescription: fields.text({ 
+          label: 'Page Description',
+          description: 'Description for the blog page section',
+          defaultValue: 'Mantente informado sobre salud y noticias del hospital.'
+        }),
+      },
+    }),
+
     footer: singleton({
       label: 'Footer Settings',
       path: 'src/content/footer/index',
@@ -658,10 +945,11 @@ export default config({
       name: 'Quina Care CMS',
     },
     navigation: {
-      'Content': ['homepage', 'about', 'foundation', 'siteSettings', 'pageHeroes', 'footer'],
+      'Pages': ['homepage', 'about', 'foundation', 'contact', 'pricing', 'teamPage', 'blogPage'],
       'Team & Staff': ['team'],
       'Services': ['services'],
       'Blog': ['blog'],
+      'Site Settings': ['siteSettings', 'pageHeroes', 'footer'],
     },
   },
 });
