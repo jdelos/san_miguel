@@ -63,6 +63,38 @@ const settingsCollection = defineCollection({
   }),
 });
 
+// Pricing collection for pricing information
+const pricingCollection = defineCollection({
+  loader: glob({ pattern: '**/*.{yml,yaml}', base: './src/content/pricing' }),
+  schema: z.object({
+    heroTitle: z.string(),
+    heroDescription: z.string(),
+    additionalServicesTitle: z.string(),
+    laboratoryTitle: z.string(),
+    laboratoryDescription: z.string(),
+    radiologyTitle: z.string(),
+    radiologyDescription: z.string(),
+    pharmacyTitle: z.string(),
+    pharmacyDescription: z.string(),
+    surgeryTitle: z.string(),
+    surgeryDescription: z.string(),
+    priceDisclaimer: z.string(),
+    showPricingTable: z.boolean().default(true),
+    pricingTableTitle: z.string(),
+    pricingCards: z.array(z.object({
+      name: z.string(),
+      price: z.string(),
+      priceUSD: z.string().optional(),
+      priceCOP: z.string().optional(),
+      availability: z.string().optional(),
+      isEmergency: z.boolean().default(false),
+      features: z.array(z.string()),
+      buttonText: z.string(),
+      buttonLink: z.string(),
+    })),
+  }),
+});
+
 // Pages collection schema
 const pagesCollection = defineCollection({
   loader: glob({ pattern: '**/*.{mdx,md}', base: './src/content/pages' }),
@@ -89,4 +121,5 @@ export const collections = {
   'services': servicesCollection,
   'pages': pagesCollection,
   'settings': settingsCollection,
+  'pricing': pricingCollection,
 };

@@ -34,32 +34,32 @@ const bgClasses = {
   <Container>
     <div class="space-y-16 py-16">
       {data.blocks && data.blocks.map((block: any) => (
-        <div class={`rounded-lg p-8 ${bgClasses[block.backgroundColor] || 'bg-white'}`}>
+        <div class={`rounded-lg p-8 ${bgClasses[block.value?.backgroundColor] || 'bg-white'}`}>
           {block.discriminant === 'full-width' && (
             <div class="max-w-4xl mx-auto">
-              <h2 class="text-3xl font-bold mb-6">{block.title}</h2>
-              <div class="prose max-w-none" set:html={block.content} />
+              <h2 class="text-3xl font-bold mb-6">{block.value.title}</h2>
+              <div class="prose max-w-none" set:html={block.value.content} />
             </div>
           )}
           
           {block.discriminant === 'two-column-cards' && (
             <div class="grid md:grid-cols-2 gap-8">
               <div class="bg-white p-6 rounded-lg shadow-sm">
-                <h3 class="text-xl font-semibold mb-4 text-gray-800">{block.leftCard.title}</h3>
-                <div class="prose text-gray-600" set:html={block.leftCard.content} />
-                {block.leftCard.link && block.leftCard.linkText && (
-                  <a href={block.leftCard.link} class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">
-                    {block.leftCard.linkText} →
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">{block.value.leftCard.title}</h3>
+                <div class="prose text-gray-600" set:html={block.value.leftCard.content} />
+                {block.value.leftCard.link && block.value.leftCard.linkText && (
+                  <a href={block.value.leftCard.link} class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">
+                    {block.value.leftCard.linkText} →
                   </a>
                 )}
               </div>
               
               <div class="bg-white p-6 rounded-lg shadow-sm">
-                <h3 class="text-xl font-semibold mb-4 text-gray-800">{block.rightCard.title}</h3>
-                <div class="prose text-gray-600" set:html={block.rightCard.content} />
-                {block.rightCard.link && block.rightCard.linkText && (
-                  <a href={block.rightCard.link} class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">
-                    {block.rightCard.linkText} →
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">{block.value.rightCard.title}</h3>
+                <div class="prose text-gray-600" set:html={block.value.rightCard.content} />
+                {block.value.rightCard.link && block.value.rightCard.linkText && (
+                  <a href={block.value.rightCard.link} class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">
+                    {block.value.rightCard.linkText} →
                   </a>
                 )}
               </div>

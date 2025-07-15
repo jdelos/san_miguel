@@ -411,7 +411,7 @@ return `Two Cards: ${(props.value as any).leftCard?.title || 'Left'} | ${(props.
           }),
           {
             label: 'Pricing Details',
-            itemLabel: props => props.value.name || 'Service',
+            itemLabel: props => props.value?.name || 'Service',
           }
         ),
       },

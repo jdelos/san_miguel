@@ -5,91 +5,23 @@ import Sectionhead from "@/components/sectionhead.astro";
 import PricingCard from "@/components/pricing.astro";
 import HospitalGallery from "@/components/HospitalGallery.astro";
 import { getEntry } from 'astro:content';
+import PageHero from "@/components/PageHero.astro";
 
-// Fetch pricing data from Keystatic
+// Fetch pricing data from Keystatic singleton
 let pricingContent;
 try {
   pricingContent = await getEntry('pricing', 'index');
+  console.log('Pricing content loaded:', pricingContent);
 } catch (error) {
-  console.warn('Pricing content not found in Keystatic, using defaults');
+  console.warn('Pricing content not found in Keystatic, using defaults:', error);
 }
 
-// Default pricing data based on the document
-const defaultPricingData = {
-  heroTitle: "Servicios médicos y tarifas",
-  heroDescription: "Trabajamos con voluntarios de varios países, incluyendo los Países Bajos. Por eso, es posible que la atención sea brindada por personal médico extranjero. La atención brindada es en español.",
-  pricingCards: [
-    {
-      name: "Consulta General",
-      price: "$5.00 | 20.000 pesos",
-      features: [
-        "Examen físico completo",
-        "Diagnóstico profesional",
-        "Atención médica integral",
-        "Todas las edades"
-      ],
-      buttonText: "Agendar Cita",
-      buttonLink: "/contact"
-    },
-    {
-      name: "Consulta Niño",
-      price: "$2.50 | 10.000 pesos",
-      features: [
-        "Atención pediátrica especializada",
-        "Cuidado adaptado a niños",
-        "Ambiente cómodo y seguro",
-        "Seguimiento del desarrollo"
-      ],
-      buttonText: "Agendar Cita",
-      buttonLink: "/contact"
-    },
-    {
-      name: "Consulta Embarazada",
-      price: "$2.50 | 10.000 pesos",
-      features: [
-        "Control prenatal",
-        "Seguimiento del embarazo",
-        "Atención especializada",
-        "Cuidado madre-bebé"
-      ],
-      buttonText: "Agendar Cita",
-      buttonLink: "/contact"
-    },
-    {
-      name: "Consulta de Emergencia",
-      price: "$15 | 60.000 pesos",
-      features: [
-        "Atención 24/7",
-        "Respuesta inmediata",
-        "Equipo especializado",
-        "Disponible toda la semana"
-      ],
-      buttonText: "Llamar Emergencia",
-      buttonLink: "tel:+593-xxx-xxxx"
-    },
-    {
-      name: "Hospitalización",
-      price: "$15 | 60.000 pesos por noche",
-      features: [
-        "Atención 24/7",
-        "Camas cómodas",
-        "Monitoreo continuo",
-        "Cuidados especializados"
-      ],
-      buttonText: "Consultar",
-      buttonLink: "/contact"
-    }
-  ],
-  additionalServicesTitle: "Servicios Adicionales",
-  laboratoryTitle: "Laboratorio",
-  laboratoryDescription: "Ofrecemos pruebas de orina, heces y sangre.",
-  radiologyTitle: "Radiología",
-  radiologyDescription: "Ofrecemos radiografías y ecografías.",
-  priceDisclaimer: "*En general, como somos una organización sin fines de lucro, tratamos de mantener los precios bajos. Esto aplica solo a servicios con indicación médica, determinada por nuestros propios médicos. Para estudios solicitados por cuenta propia, se aplican tarifas comerciales más altas."
-};
+// Use Keystatic data - this should always be available now
+const data = pricingContent?.data;
 
-// Use Keystatic data if available, otherwise use defaults
-const data = pricingContent?.data || defaultPricingData;
+if (!data) {
+  throw new Error('Pricing data not found in Keystatic. Please check your content configuration.');
+}
 
 // Transform pricing cards for the pricing component
 const pricingCards = data.pricingCards?.map(card => ({
@@ -101,12 +33,10 @@ const pricingCards = data.pricingCards?.map(card => ({
 })) || [];
 ---
 
-<Layout>
+<Layout title={data.heroTitle} >
   <Container>
-    <Sectionhead>
-      <Fragment slot="title">{data.heroTitle}</Fragment>
-      <Fragment slot="desc">{data.heroDescription}</Fragment>
-    </Sectionhead>
+    <PageHero title={data.heroTitle} description={data.heroDescription}/>
+
     
     <!-- Pricing Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 max-w-4xl mx-auto">
@@ -117,9 +47,9 @@ const pricingCards = data.pricingCards?.map(card => ({
 
     <!-- Pricing Table from Keystatic -->
     {data.showPricingTable && (
-      <div class="mt-16 max-w-6xl mx-auto">
+      <div class="mt-16 max-w-4xl mx-auto">
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
+          <div class="bg-gradient-to-r from-[#547A67] to-[#6eb290] px-6 py-4">
             <h3 class="text-xl font-semibold text-white">{data.pricingTableTitle}</h3>
           </div>
           <div class="overflow-x-auto">
