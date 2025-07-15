@@ -299,6 +299,124 @@ return `Two Cards: ${(props.value as any).leftCard?.title || 'Left'} | ${(props.
   },
 
   singletons: {
+    pricing: singleton({
+      label: 'Pricing & Services',
+      path: 'src/content/pricing/index',
+      schema: {
+        heroTitle: fields.text({ 
+          label: 'Hero Title',
+          defaultValue: 'Servicios médicos y tarifas'
+        }),
+        heroDescription: fields.text({ 
+          label: 'Hero Description',
+          defaultValue: 'Trabajamos con voluntarios de varios países, incluyendo los Países Bajos. Por eso, es posible que la atención sea brindada por personal médico extranjero. La atención brindada es en español.',
+          multiline: true
+        }),
+        additionalServicesTitle: fields.text({ 
+          label: 'Additional Services Title',
+          defaultValue: 'Servicios Adicionales'
+        }),
+        laboratoryTitle: fields.text({ 
+          label: 'Laboratory Title',
+          defaultValue: 'Laboratorio Clínico'
+        }),
+        laboratoryDescription: fields.text({ 
+          label: 'Laboratory Description',
+          defaultValue: 'Análisis completos y especializados',
+          multiline: true
+        }),
+        radiologyTitle: fields.text({ 
+          label: 'Radiology Title',
+          defaultValue: 'Radiología'
+        }),
+        radiologyDescription: fields.text({ 
+          label: 'Radiology Description',
+          defaultValue: 'Estudios de imagen con tecnología moderna',
+          multiline: true
+        }),
+        pharmacyTitle: fields.text({ 
+          label: 'Pharmacy Title',
+          defaultValue: 'Farmacia'
+        }),
+        pharmacyDescription: fields.text({ 
+          label: 'Pharmacy Description',
+          defaultValue: 'Medicamentos y productos farmacéuticos',
+          multiline: true
+        }),
+        surgeryTitle: fields.text({ 
+          label: 'Surgery Title',
+          defaultValue: 'Cirugía Menor'
+        }),
+        surgeryDescription: fields.text({ 
+          label: 'Surgery Description',
+          defaultValue: 'Procedimientos quirúrgicos menores',
+          multiline: true
+        }),
+        priceDisclaimer: fields.text({ 
+          label: 'Price Disclaimer',
+          defaultValue: 'Los precios pueden variar según la complejidad del caso. Consulte con nuestro personal para información específica.',
+          multiline: true
+        }),
+        showPricingTable: fields.checkbox({
+          label: 'Show Pricing Table',
+          description: 'Display pricing information in a table format',
+          defaultValue: true
+        }),
+        pricingTableTitle: fields.text({
+          label: 'Pricing Table Title',
+          defaultValue: 'Tabla de Precios'
+        }),
+        pricingCards: fields.array(
+          fields.object({
+            name: fields.text({ 
+              label: 'Service Name',
+              validation: { isRequired: true }
+            }),
+            price: fields.text({ 
+              label: 'Price',
+              validation: { isRequired: true }
+            }),
+            priceUSD: fields.text({ 
+              label: 'Price USD',
+              validation: { isRequired: false }
+            }),
+            priceCOP: fields.text({ 
+              label: 'Price COP',
+              validation: { isRequired: false }
+            }),
+            availability: fields.text({ 
+              label: 'Availability',
+              defaultValue: 'Horario regular'
+            }),
+            isEmergency: fields.checkbox({
+              label: 'Emergency Service',
+              description: 'Highlight as emergency service',
+              defaultValue: false
+            }),
+            features: fields.array(
+              fields.text({ label: 'Feature' }),
+              {
+                label: 'Features',
+                itemLabel: props => props.value || 'Feature',
+              }
+            ),
+            buttonText: fields.text({ 
+              label: 'Button Text',
+              defaultValue: 'Agendar Cita'
+            }),
+            buttonLink: fields.text({ 
+              label: 'Button Link',
+              defaultValue: '/contact'
+            }),
+          }),
+          {
+            label: 'Pricing Details',
+            itemLabel: props => props.value.name || 'Service',
+          }
+        ),
+      },
+    }),
+
     // Global Settings
     siteSettings: singleton({
       label: 'Site Settings',
@@ -343,6 +461,7 @@ return `Two Cards: ${(props.value as any).leftCard?.title || 'Left'} | ${(props.
       'Pages': ['pages'],
       'Team & Staff': ['team'],
       'Services': ['services'],
+      'Pricing': ['pricing'],
       'Blog': ['blog'],
       'Site Settings': ['siteSettings'],
     },

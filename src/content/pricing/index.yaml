@@ -1,0 +1,87 @@
+heroTitle: Servicios médicos y tarifas
+heroDescription: >-
+  Trabajamos con voluntarios de varios países, incluyendo los Países Bajos. Por
+  eso, es posible que la atención sea brindada por personal médico extranjero.
+  La atención brindada es en español.
+additionalServicesTitle: Servicios Adicionales
+laboratoryTitle: Laboratorio
+laboratoryDescription: Ofrecemos pruebas de orina, heces y sangre.
+radiologyTitle: Radiología
+radiologyDescription: Ofrecemos radiografías y ecografías.
+pharmacyTitle: Farmacia
+pharmacyDescription: Medicamentos y productos farmacéuticos
+surgeryTitle: Cirugía Menor
+surgeryDescription: Procedimientos quirúrgicos menores
+priceDisclaimer: >-
+  *En general, como somos una organización sin fines de lucro, tratamos de
+  mantener los precios bajos. Esto aplica solo a servicios con indicación
+  médica, determinada por nuestros propios médicos. Para estudios solicitados
+  por cuenta propia, se aplican tarifas comerciales más altas.
+showPricingTable: true
+pricingTableTitle: Tabla de Precios
+pricingCards:
+  - name: Consulta General
+    price: $5.00 | 20.000 pesos
+    priceUSD: $5.00
+    priceCOP: 20.000 pesos
+    availability: Horario regular
+    isEmergency: false
+    features:
+      - Examen físico completo
+      - Diagnóstico profesional
+      - Atención médica integral
+      - Todas las edades
+    buttonText: Agendar Cita
+    buttonLink: /contact
+  - name: Consulta Niño
+    price: $2.50 | 10.000 pesos
+    priceUSD: $2.50
+    priceCOP: 10.000 pesos
+    availability: Horario regular
+    isEmergency: false
+    features:
+      - Atención pediátrica especializada
+      - Cuidado adaptado a niños
+      - Ambiente cómodo y seguro
+      - Seguimiento del desarrollo
+    buttonText: Agendar Cita
+    buttonLink: /contact
+  - name: Consulta Embarazada
+    price: $2.50 | 10.000 pesos
+    priceUSD: $2.50
+    priceCOP: 10.000 pesos
+    availability: Horario regular
+    isEmergency: false
+    features:
+      - Control prenatal
+      - Seguimiento del embarazo
+      - Atención especializada
+      - Cuidado madre-bebé
+    buttonText: Agendar Cita
+    buttonLink: /contact
+  - name: Consulta de Emergencia
+    price: $15 | 60.000 pesos
+    priceUSD: $15.00
+    priceCOP: 60.000 pesos
+    availability: 24/7
+    isEmergency: true
+    features:
+      - Atención 24/7
+      - Respuesta inmediata
+      - Equipo especializado
+      - Disponible toda la semana
+    buttonText: Llamar Emergencia
+    buttonLink: tel:+593-xxx-xxxx
+  - name: Hospitalización
+    price: $15 | 60.000 pesos por noche
+    priceUSD: $15.00
+    priceCOP: 60.000 pesos
+    availability: Por noche
+    isEmergency: false
+    features:
+      - Atención 24/7
+      - Camas cómodas
+      - Monitoreo continuo
+      - Cuidados especializados
+    buttonText: Consultar
+    buttonLink: /contact
