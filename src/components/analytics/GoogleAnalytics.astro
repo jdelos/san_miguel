@@ -1,0 +1,28 @@
+---
+export interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<!-- Google tag (gtag.js) with consent management -->
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${id}`}></script>
+<script define:vars={{ id }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  
+  // Initialize with consent denied by default
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'wait_for_update': 500,
+  });
+  
+  gtag('js', new Date());
+  gtag('config', id, {
+    'anonymize_ip': true,
+    'allow_google_signals': false,
+    'allow_ad_personalization_signals': false
+  });
+</script>

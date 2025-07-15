@@ -414,6 +414,122 @@ export default config({
         }),
       },
     }),
+
+    footer: singleton({
+      label: 'Footer Settings',
+      path: 'src/content/footer/index',
+      schema: {
+        hospitalName: fields.text({ 
+          label: 'Hospital Name',
+          description: 'Name displayed in footer',
+          defaultValue: 'Hospital San Miguel'
+        }),
+        description: fields.text({ 
+          label: 'Hospital Description',
+          description: 'Brief description about the hospital',
+          multiline: true,
+          defaultValue: 'Comprometidos con brindar la mejor atención médica con tecnología de vanguardia y un equipo humano altamente especializado. Tu salud es nuestra prioridad.'
+        }),
+        emergencyNumber: fields.text({ 
+          label: 'Emergency Phone Number',
+          description: 'Emergency contact number',
+          defaultValue: '911'
+        }),
+        
+        // Services Section
+        servicesTitle: fields.text({ 
+          label: 'Services Section Title',
+          description: 'Title for services section in footer',
+          defaultValue: 'Servicios'
+        }),
+        serviceLinks: fields.array(
+          fields.object({
+            title: fields.text({ 
+              label: 'Service Name',
+              description: 'Name of the service'
+            }),
+            url: fields.text({ 
+              label: 'Service URL',
+              description: 'Link to service page (e.g., /services/cardiologia)'
+            }),
+            isExternal: fields.checkbox({
+              label: 'External Link',
+              description: 'Check if this links to an external website',
+              defaultValue: false
+            })
+          }),
+          {
+            label: 'Service Links',
+            itemLabel: props => props.fields.title.value || 'Service Link',
+            validation: { length: { min: 1 } }
+          }
+        ),
+        
+        // Contact Section
+        contactTitle: fields.text({ 
+          label: 'Contact Section Title',
+          description: 'Title for contact section in footer',
+          defaultValue: 'Contacto'
+        }),
+        contactAddress: fields.text({ 
+          label: 'Contact Address',
+          description: 'Physical address of the hospital',
+          multiline: true,
+          defaultValue: 'Calle Principal 123\nSan Miguel, El Salvador'
+        }),
+        contactPhone: fields.text({ 
+          label: 'Contact Phone',
+          description: 'Main phone number',
+          defaultValue: '+503 2345-6789'
+        }),
+        contactEmail: fields.text({ 
+          label: 'Contact Email',
+          description: 'Main email address',
+          defaultValue: 'info@hospitalsanmiguel.com'
+        }),
+        
+        // Legal Links
+        legalLinks: fields.array(
+          fields.object({
+            title: fields.text({ 
+              label: 'Link Title',
+              description: 'Title of the legal link'
+            }),
+            url: fields.text({ 
+              label: 'Link URL',
+              description: 'URL of the legal page'
+            }),
+            isExternal: fields.checkbox({
+              label: 'External Link',
+              description: 'Check if this links to an external website',
+              defaultValue: false
+            })
+          }),
+          {
+            label: 'Legal Links',
+            itemLabel: props => props.fields.title.value || 'Legal Link',
+            validation: { length: { min: 1 } }
+          }
+        ),
+        
+        // Footer Bottom
+        copyrightText: fields.text({ 
+          label: 'Copyright Text',
+          description: 'Copyright notice (year will be added automatically)',
+          defaultValue: 'Hospital San Miguel. Todos los derechos reservados.'
+        }),
+        licenseInfo: fields.text({ 
+          label: 'License Information',
+          description: 'Hospital license and registration info',
+          defaultValue: 'Licencia Sanitaria: LS-2024-001 | Registro Nacional: RN-HSM-2024'
+        }),
+        accreditationInfo: fields.text({ 
+          label: 'Accreditation Information',
+          description: 'Government accreditation details',
+          defaultValue: 'Acreditado por el Ministerio de Salud de El Salvador'
+        }),
+      },
+    }),
   },
   
   ui: {
@@ -421,7 +537,7 @@ export default config({
       name: 'Quina Care CMS',
     },
     navigation: {
-      'Content': ['homepage', 'about', 'foundation', 'siteSettings'],
+      'Content': ['homepage', 'about', 'foundation', 'siteSettings', 'footer'],
       'Team & Staff': ['team'],
       'Services': ['services'],
       'Blog': ['blog'],

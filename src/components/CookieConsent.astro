@@ -1,0 +1,428 @@
+---
+// No server-side logic needed for this component
+---
+
+<script>
+  import { run } from 'vanilla-cookieconsent';
+  
+  // Initialize cookie consent
+  const cookieConsent = run({
+    guiOptions: {
+      consentModal: {
+        layout: 'box',
+        position: 'bottom right',
+        equalWeightButtons: false,
+        flipButtons: false
+      },
+      preferencesModal: {
+        layout: 'box',
+        position: 'center',
+        equalWeightButtons: true,
+        flipButtons: false
+      }
+    },
+    
+    categories: {
+      necessary: {
+        readOnly: true
+      },
+      analytics: {
+        autoClear: {
+          cookies: [
+            {
+              name: /^_ga/,
+            },
+            {
+              name: '_gid',
+            },
+            {
+              name: '_gat_gtag_UA_',
+            }
+          ]
+        }
+      }
+    },
+    
+    language: {
+      default: 'es',
+      translations: {
+        es: {
+          consentModal: {
+            title: 'Utilizamos cookies 🍪',
+            description: 'Utilizamos cookies para mejorar su experiencia y analizar el uso del sitio. Puede gestionar sus preferencias en cualquier momento.',
+            acceptAllBtn: 'Aceptar todas',
+            acceptNecessaryBtn: 'Solo necesarias',
+            showPreferencesBtn: 'Personalizar',
+            footer: '<a href="/privacy">Política de privacidad</a> • <a href="/terms">Términos de uso</a>',
+          },
+          preferencesModal: {
+            title: 'Preferencias de cookies',
+            acceptAllBtn: 'Aceptar todas',
+            acceptNecessaryBtn: 'Solo necesarias',
+            savePreferencesBtn: 'Guardar',
+            closeIconLabel: 'Cerrar',
+            serviceCounterLabel: 'Servicio|Servicios',
+            sections: [
+              {
+                title: 'Personalice sus preferencias',
+                description: 'Elija qué tipos de cookies desea permitir. Puede cambiar estas configuraciones en cualquier momento. <a href="/privacy" class="cc-link">Más información</a>',
+              },
+              {
+                title: 'Cookies necesarias <span class="pm__badge">Siempre activas</span>',
+                description: 'Esenciales para el funcionamiento básico del sitio web.',
+                linkedCategory: 'necessary',
+              },
+              {
+                title: 'Cookies de análisis',
+                description: 'Nos ayudan a entender cómo usa el sitio para mejorarlo.',
+                linkedCategory: 'analytics',
+              },
+            ],
+          },
+        },
+        en: {
+          consentModal: {
+            title: 'We use cookies 🍪',
+            description: 'We use cookies to improve your experience and analyze site usage. You can manage your preferences at any time.',
+            acceptAllBtn: 'Accept all',
+            acceptNecessaryBtn: 'Necessary only',
+            showPreferencesBtn: 'Customize',
+            footer: '<a href="/privacy">Privacy Policy</a> • <a href="/terms">Terms of Use</a>',
+          },
+          preferencesModal: {
+            title: 'Cookie preferences',
+            acceptAllBtn: 'Accept all',
+            acceptNecessaryBtn: 'Necessary only',
+            savePreferencesBtn: 'Save',
+            closeIconLabel: 'Close',
+            serviceCounterLabel: 'Service|Services',
+            sections: [
+              {
+                title: 'Customize your preferences',
+                description: 'Choose which types of cookies you want to allow. You can change these settings at any time. <a href="/privacy" class="cc-link">More information</a>',
+              },
+              {
+                title: 'Necessary cookies <span class="pm__badge">Always enabled</span>',
+                description: 'Essential for basic website functionality.',
+                linkedCategory: 'necessary',
+              },
+              {
+                title: 'Analytics cookies',
+                description: 'Help us understand how you use the site to improve it.',
+                linkedCategory: 'analytics',
+              },
+            ],
+          },
+        },
+      },
+    },
+    
+    onFirstConsent: ({cookie}) => {
+      console.log('First consent given');
+    },
+    
+    onConsent: ({cookie}) => {
+      console.log('Consent updated');
+      
+      // If analytics cookies are accepted, initialize Google Analytics
+      if (cookie.categories.includes('analytics')) {
+        window.gtag && window.gtag('consent', 'update', {
+          analytics_storage: 'granted'
+        });
+      }
+    },
+    
+    onChange: ({cookie, changedCategories}) => {
+      console.log('Cookie preferences changed');
+      
+      // Update Google Analytics consent
+      if (changedCategories.includes('analytics')) {
+        if (cookie.categories.includes('analytics')) {
+          window.gtag && window.gtag('consent', 'update', {
+            analytics_storage: 'granted'
+          });
+        } else {
+          window.gtag && window.gtag('consent', 'update', {
+            analytics_storage: 'denied'
+          });
+        }
+      }
+    }
+  });
+  
+  // Expose API globally for footer button
+  window.CookieConsent = cookieConsent;
+</script>
+
+<style>
+  /* Import the cookie consent CSS */
+  @import 'vanilla-cookieconsent/dist/cookieconsent.css';
+  
+  /* Hospital San Miguel Custom Theme */
+  :root {
+    --cc-bg: #ffffff;
+    --cc-text: #1f2937;
+    --cc-btn-primary-bg: #EE2D2E;
+    --cc-btn-primary-text: #ffffff;
+    --cc-btn-primary-hover-bg: #D11B1C;
+    --cc-btn-secondary-bg: #f8fafc;
+    --cc-btn-secondary-text: #475569;
+    --cc-btn-secondary-hover-bg: #e2e8f0;
+    --cc-btn-secondary-border: #cbd5e1;
+    --cc-toggle-bg-off: #cbd5e1;
+    --cc-toggle-bg-on: #EE2D2E;
+    --cc-toggle-bg-readonly: #e2e8f0;
+    --cc-toggle-knob-bg: #ffffff;
+    --cc-toggle-knob-icon-color: #1f2937;
+    --cc-block-text: #64748b;
+    --cc-cookie-category-block-bg: #f8fafc;
+    --cc-cookie-category-block-bg-hover: #f1f5f9;
+    --cc-section-border: #e2e8f0;
+    --cc-cookie-table-border: #e2e8f0;
+    --cc-overlay-bg: rgba(0, 0, 0, 0.4);
+    --cc-webkit-scrollbar-bg: #f1f5f9;
+    --cc-webkit-scrollbar-bg-hover: #e2e8f0;
+  }
+  
+  /* Modern Modal Styling */
+  .cc-modal {
+    border-radius: 16px !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid var(--cc-section-border) !important;
+    backdrop-filter: blur(10px);
+    max-width: 480px !important;
+  }
+  
+  /* Consent Modal Specific Styling */
+  .cc-modal.cc-modal--consent {
+    max-width: 420px !important;
+  }
+  
+  .cc-modal__header {
+    border-bottom: 1px solid var(--cc-section-border) !important;
+    padding: 24px 24px 16px 24px !important;
+  }
+  
+  .cc-modal__body {
+    padding: 0 24px 16px 24px !important;
+  }
+  
+  .cc-modal__footer {
+    border-top: 1px solid var(--cc-section-border) !important;
+    padding: 16px 24px 24px 24px !important;
+    background: var(--cc-bg) !important;
+    border-radius: 0 0 16px 16px !important;
+  }
+  
+  /* Title Styling */
+  .cc-modal__title {
+    color: var(--cc-text) !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* Description Styling */
+  .cc-modal__description {
+    color: var(--cc-block-text) !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin: 12px 0 0 0 !important;
+  }
+  
+  /* Button Styling */
+  .cc-btn {
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    padding: 12px 20px !important;
+    transition: all 0.2s ease !important;
+    border: 1px solid transparent !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    cursor: pointer !important;
+  }
+  
+  .cc-btn--primary {
+    background: var(--cc-btn-primary-bg) !important;
+    color: var(--cc-btn-primary-text) !important;
+    border-color: var(--cc-btn-primary-bg) !important;
+  }
+  
+  .cc-btn--primary:hover {
+    background: var(--cc-btn-primary-hover-bg) !important;
+    border-color: var(--cc-btn-primary-hover-bg) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(238, 45, 46, 0.3) !important;
+  }
+  
+  .cc-btn--secondary {
+    background: var(--cc-btn-secondary-bg) !important;
+    color: var(--cc-btn-secondary-text) !important;
+    border-color: var(--cc-btn-secondary-border) !important;
+  }
+  
+  .cc-btn--secondary:hover {
+    background: var(--cc-btn-secondary-hover-bg) !important;
+    border-color: #94a3b8 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Button Container */
+  .cc-modal__footer .cc-btn + .cc-btn {
+    margin-left: 12px !important;
+  }
+  
+  /* Preferences Modal Specific */
+  .cc-modal--preferences {
+    max-width: 600px !important;
+  }
+  
+  .cc-modal--preferences .cc-modal__body {
+    max-height: 400px !important;
+    overflow-y: auto !important;
+    padding: 16px 24px !important;
+  }
+  
+  /* Toggle Switches */
+  .cc-toggle {
+    width: 48px !important;
+    height: 24px !important;
+    border-radius: 12px !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .cc-toggle__input:checked + .cc-toggle__slider {
+    background: var(--cc-toggle-bg-on) !important;
+  }
+  
+  .cc-toggle__knob {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    background: var(--cc-toggle-knob-bg) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .cc-toggle__input:checked + .cc-toggle__slider .cc-toggle__knob {
+    transform: translateX(24px) !important;
+  }
+  
+  /* Cookie Category Blocks */
+  .cc-cookie-category {
+    margin-bottom: 16px !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--cc-section-border) !important;
+    overflow: hidden !important;
+  }
+  
+  .cc-cookie-category__header {
+    background: var(--cc-cookie-category-block-bg) !important;
+    padding: 16px !important;
+    border-bottom: 1px solid var(--cc-section-border) !important;
+  }
+  
+  .cc-cookie-category__body {
+    padding: 16px !important;
+    background: var(--cc-bg) !important;
+  }
+  
+  .cc-cookie-category__title {
+    font-weight: 600 !important;
+    color: var(--cc-text) !important;
+    font-size: 16px !important;
+    margin: 0 !important;
+  }
+  
+  .cc-cookie-category__description {
+    color: var(--cc-block-text) !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    margin: 8px 0 0 0 !important;
+  }
+  
+  /* Links */
+  .cc-link {
+    color: var(--cc-btn-primary-bg) !important;
+    text-decoration: underline !important;
+    transition: color 0.2s ease !important;
+  }
+  
+  .cc-link:hover {
+    color: var(--cc-btn-primary-hover-bg) !important;
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 640px) {
+    .cc-modal {
+      max-width: calc(100vw - 32px) !important;
+      margin: 16px !important;
+    }
+    
+    .cc-modal__header,
+    .cc-modal__body,
+    .cc-modal__footer {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+    
+    .cc-modal__footer .cc-btn {
+      width: 100% !important;
+      margin: 0 0 8px 0 !important;
+    }
+    
+    .cc-modal__footer .cc-btn + .cc-btn {
+      margin-left: 0 !important;
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --cc-bg: #1f2937;
+      --cc-text: #f9fafb;
+      --cc-block-text: #d1d5db;
+      --cc-cookie-category-block-bg: #374151;
+      --cc-section-border: #374151;
+      --cc-btn-secondary-bg: #374151;
+      --cc-btn-secondary-text: #f9fafb;
+      --cc-btn-secondary-hover-bg: #4b5563;
+    }
+  }
+  
+  /* Animation for modal appearance */
+  @keyframes cc-modal-appear {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .cc-modal {
+    animation: cc-modal-appear 0.3s ease-out !important;
+  }
+  
+  /* Overlay animation */
+  @keyframes cc-overlay-appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .cc-overlay {
+    animation: cc-overlay-appear 0.2s ease-out !important;
+  }
+</style>

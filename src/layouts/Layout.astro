@@ -2,6 +2,9 @@
 import { SEO } from "astro-seo";
 import Footer from "@/components/footer.astro";
 import Navbar from "@/components/navbar/navbar.astro";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics.astro";
+import CookieConsentSimple from "@/components/CookieConsentSimple.astro";
+import { shouldEnableAnalytics, getGoogleAnalyticsId } from "@/config/analytics.ts";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
@@ -54,11 +57,17 @@ const makeTitle = title
         },
       }}
     />
+    
+    <!-- Google Analytics -->
+    {shouldEnableAnalytics() && <GoogleAnalytics id={getGoogleAnalyticsId()} />}
   </head>
   <body>
     <Navbar />
     <slot />
     <Footer />
+    
+    <!-- Cookie Consent -->
+    <CookieConsentSimple />
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */

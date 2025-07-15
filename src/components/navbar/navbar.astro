@@ -3,6 +3,7 @@ import Container from "@/components/container.astro";
 import Link from "@/components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import Cross from "@/assets/cross.svg";
 
 const menuitems = [
   {
@@ -36,8 +37,13 @@ const menuitems = [
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">Hospital San Miguel</span>
+        <a href="/" class="text-lg inline-flex items-center gap-1">
+          <Cross class="size-8" />
+          <span class="text-[#557B68] font-black uppercase text-xl leading-4"
+            >Hospital
+            <br />
+            San Miguel</span
+          >
         </a>
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 text-gray-800" />

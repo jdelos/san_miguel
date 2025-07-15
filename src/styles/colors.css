@@ -1,0 +1,365 @@
+/* Hospital San Miguel Color Palette */
+:root {
+  /* Primary Red Palette - Based on #EE2D2E */
+  --primary-red: #EE2D2E;
+  --primary-red-light: #F55859;
+  --primary-red-lighter: #FB8384;
+  --primary-red-lightest: #FDAEAF;
+  --primary-red-dark: #D11B1C;
+  --primary-red-darker: #B50B0C;
+  --primary-red-darkest: #990000;
+  
+  /* Secondary Colors - Natural green palette */
+  --secondary-green: #557B68;
+  --secondary-green-light: #6B8F7C;
+  --secondary-green-lighter: #81A490;
+  --secondary-green-lightest: #97B8A4;
+  --secondary-green-dark: #4A6B58;
+  --secondary-green-darker: #3F5A48;
+  --secondary-green-darkest: #344A38;
+  
+  /* Accent Colors - Complementary teal */
+  --accent-teal: #4A7C7E;
+  --accent-teal-light: #5E9092;
+  --accent-teal-lighter: #72A4A6;
+  --accent-teal-lightest: #86B8BA;
+  --accent-teal-dark: #3F686A;
+  --accent-teal-darker: #345556;
+  --accent-teal-darkest: #294142;
+  
+  /* Neutral Colors - Professional medical palette */
+  --neutral-white: #FFFFFF;
+  --neutral-gray-100: #F8F9FA;
+  --neutral-gray-200: #E9ECEF;
+  --neutral-gray-300: #DEE2E6;
+  --neutral-gray-400: #CED4DA;
+  --neutral-gray-500: #ADB5BD;
+  --neutral-gray-600: #6C757D;
+  --neutral-gray-700: #495057;
+  --neutral-gray-800: #343A40;
+  --neutral-gray-900: #212529;
+  
+  /* Status Colors */
+  --success: var(--secondary-green);
+  --success-light: var(--secondary-green-light);
+  --success-dark: var(--secondary-green-dark);
+  
+  --warning: #E6A623;
+  --warning-light: #F0B747;
+  --warning-dark: #CC941F;
+  
+  --error: var(--primary-red);
+  --error-light: var(--primary-red-light);
+  --error-dark: var(--primary-red-dark);
+  
+  --info: var(--accent-teal);
+  --info-light: var(--accent-teal-light);
+  --info-dark: var(--accent-teal-dark);
+  
+  /* Gradient Definitions */
+  --gradient-primary: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+  --gradient-primary-vertical: linear-gradient(180deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+  --gradient-primary-light: linear-gradient(135deg, var(--primary-red-light) 0%, var(--primary-red) 100%);
+  --gradient-primary-subtle: linear-gradient(135deg, var(--primary-red-lightest) 0%, var(--primary-red-lighter) 100%);
+  
+  --gradient-secondary: linear-gradient(135deg, var(--secondary-green) 0%, var(--secondary-green-dark) 100%);
+  --gradient-secondary-vertical: linear-gradient(180deg, var(--secondary-green) 0%, var(--secondary-green-dark) 100%);
+  
+  --gradient-accent: linear-gradient(135deg, var(--accent-teal) 0%, var(--accent-teal-dark) 100%);
+  
+  --gradient-neutral: linear-gradient(135deg, var(--neutral-gray-100) 0%, var(--neutral-gray-200) 100%);
+  --gradient-neutral-dark: linear-gradient(135deg, var(--neutral-gray-700) 0%, var(--neutral-gray-900) 100%);
+  
+  /* Complex Gradients */
+  --gradient-hero: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 50%, var(--primary-red-darker) 100%);
+  --gradient-card: linear-gradient(145deg, var(--neutral-white) 0%, var(--neutral-gray-100) 100%);
+  --gradient-card-hover: linear-gradient(145deg, var(--primary-red-lightest) 0%, var(--neutral-white) 100%);
+  
+  /* Medical-specific gradients - Realistic combinations */
+  --gradient-medical-primary: linear-gradient(135deg, var(--primary-red) 0%, #A15448 50%, var(--secondary-green) 100%);
+  --gradient-medical-secondary: linear-gradient(135deg, var(--secondary-green-light) 0%, var(--secondary-green-dark) 100%);
+  --gradient-medical-emergency: linear-gradient(135deg, var(--primary-red-dark) 0%, var(--primary-red-darker) 100%);
+  --gradient-medical-subtle: linear-gradient(135deg, var(--primary-red-lightest) 0%, #C4A098 50%, var(--secondary-green-lightest) 100%);
+  
+  /* Advanced Header Gradients - Human-designed combinations */
+  --gradient-header-primary: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 60%, var(--primary-red-darker) 100%);
+  --gradient-header-secondary: linear-gradient(135deg, var(--secondary-green) 0%, var(--secondary-green-dark) 60%, var(--secondary-green-darker) 100%);
+  --gradient-header-medical: linear-gradient(135deg, var(--primary-red) 0%, #B84A42 30%, #8B5E56 70%, var(--secondary-green-dark) 100%);
+  --gradient-header-emergency: linear-gradient(135deg, var(--primary-red-dark) 0%, var(--primary-red-darker) 40%, var(--primary-red-darkest) 100%);
+  
+  /* Subtle Card Gradients - Professional medical look */
+  --gradient-card-primary: linear-gradient(145deg, var(--primary-red-lightest) 0%, var(--neutral-white) 50%, var(--primary-red-lighter) 100%);
+  --gradient-card-secondary: linear-gradient(145deg, var(--secondary-green-lightest) 0%, var(--neutral-white) 50%, var(--secondary-green-lighter) 100%);
+  --gradient-card-accent: linear-gradient(145deg, var(--accent-teal-lightest) 0%, var(--neutral-white) 50%, var(--accent-teal-lighter) 100%);
+  --gradient-card-neutral: linear-gradient(145deg, var(--neutral-gray-100) 0%, var(--neutral-white) 50%, var(--neutral-gray-200) 100%);
+  --gradient-card-medical: linear-gradient(145deg, var(--primary-red-lightest) 0%, var(--neutral-white) 30%, #E6D5D1 70%, var(--secondary-green-lightest) 100%);
+  
+  /* Radial Gradients - Professional medical look */
+  --gradient-radial-primary: radial-gradient(circle at center, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+  --gradient-radial-secondary: radial-gradient(circle at center, var(--secondary-green) 0%, var(--secondary-green-dark) 100%);
+  --gradient-radial-accent: radial-gradient(circle at center, var(--accent-teal) 0%, var(--accent-teal-dark) 100%);
+  --gradient-radial-medical: radial-gradient(circle at center, var(--primary-red) 0%, #A15448 50%, var(--secondary-green-dark) 100%);
+  
+  /* Overlay Gradients */
+  --gradient-overlay-dark: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
+  --gradient-overlay-primary: linear-gradient(135deg, rgba(238,45,46,0.8) 0%, rgba(238,45,46,0.9) 100%);
+  --gradient-overlay-light: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.9) 100%);
+  --gradient-overlay-medical: linear-gradient(135deg, rgba(238,45,46,0.7) 0%, rgba(161,84,72,0.8) 50%, rgba(85,123,104,0.7) 100%);
+  
+  /* Animated Gradients - Realistic medical transitions */
+  --gradient-animated-primary: linear-gradient(-45deg, var(--primary-red), var(--primary-red-dark), var(--primary-red-darker), var(--primary-red));
+  --gradient-animated-medical: linear-gradient(-45deg, var(--primary-red), #B84A42, #8B5E56, var(--secondary-green), var(--primary-red));
+  --gradient-animated-subtle: linear-gradient(-45deg, var(--primary-red-lightest), #E6D5D1, var(--secondary-green-lightest), var(--primary-red-lightest));
+  
+  /* Button Gradients - Updated with new colors */
+  --gradient-button-primary: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+  --gradient-button-primary-hover: linear-gradient(135deg, var(--primary-red-dark) 0%, var(--primary-red-darker) 100%);
+  --gradient-button-secondary: linear-gradient(135deg, var(--secondary-green) 0%, var(--secondary-green-dark) 100%);
+  --gradient-button-secondary-hover: linear-gradient(135deg, var(--secondary-green-dark) 0%, var(--secondary-green-darker) 100%);
+  --gradient-button-accent: linear-gradient(135deg, var(--accent-teal) 0%, var(--accent-teal-dark) 100%);
+  --gradient-button-accent-hover: linear-gradient(135deg, var(--accent-teal-dark) 0%, var(--accent-teal-darker) 100%);
+  --gradient-button-medical: linear-gradient(135deg, var(--primary-red) 0%, #A15448 50%, var(--secondary-green) 100%);
+  --gradient-button-medical-hover: linear-gradient(135deg, var(--primary-red-dark) 0%, #8B5E56 50%, var(--secondary-green-dark) 100%);
+  
+  /* Border Gradients - Updated with new colors */
+  --gradient-border-primary: linear-gradient(135deg, var(--primary-red-light) 0%, var(--primary-red) 100%);
+  --gradient-border-secondary: linear-gradient(135deg, var(--secondary-green-light) 0%, var(--secondary-green) 100%);
+  --gradient-border-accent: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--accent-teal) 100%);
+  --gradient-border-medical: linear-gradient(135deg, var(--primary-red-light) 0%, #C4A098 50%, var(--secondary-green-light) 100%);
+  
+  /* Text Colors on Different Backgrounds */
+  --text-on-primary: var(--neutral-white);
+  --text-on-secondary: var(--neutral-white);
+  --text-on-accent: var(--neutral-white);
+  --text-on-light: var(--neutral-gray-800);
+  --text-on-dark: var(--neutral-white);
+  
+  /* Shadow Colors */
+  --shadow-primary: rgba(238, 45, 46, 0.2);
+  --shadow-secondary: rgba(85, 123, 104, 0.2);
+  --shadow-accent: rgba(74, 124, 126, 0.2);
+  --shadow-neutral: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --shadow-medical: rgba(161, 84, 72, 0.15);
+  
+  /* Border Colors */
+  --border-primary: var(--primary-red-light);
+  --border-secondary: var(--secondary-green-light);
+  --border-accent: var(--accent-teal-light);
+  --border-light: var(--neutral-gray-300);
+  --border-dark: var(--neutral-gray-600);
+  --border-medical: #C4A098;
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --gradient-card: linear-gradient(145deg, var(--neutral-gray-800) 0%, var(--neutral-gray-700) 100%);
+    --gradient-card-hover: linear-gradient(145deg, var(--primary-red-darkest) 0%, var(--neutral-gray-800) 100%);
+    --text-on-light: var(--neutral-white);
+    --border-light: var(--neutral-gray-600);
+  }
+}
+
+/* Utility Classes for Quick Application */
+
+/* Background Colors */
+.bg-primary { background-color: var(--primary-red); }
+.bg-primary-light { background-color: var(--primary-red-light); }
+.bg-primary-dark { background-color: var(--primary-red-dark); }
+.bg-secondary { background-color: var(--secondary-green); }
+.bg-accent { background-color: var(--accent-teal); }
+
+/* Text Colors */
+.text-primary { color: var(--primary-red); }
+.text-secondary { color: var(--secondary-green); }
+.text-accent { color: var(--accent-teal); }
+.text-neutral { color: var(--neutral-gray-600); }
+.text-white { color: var(--neutral-white); }
+
+/* Basic Gradients */
+.gradient-primary { background: var(--gradient-primary); }
+.gradient-secondary { background: var(--gradient-secondary); }
+.gradient-accent { background: var(--gradient-accent); }
+.gradient-hero { background: var(--gradient-hero); }
+.gradient-card { background: var(--gradient-card); }
+.gradient-medical { background: var(--gradient-medical-primary); }
+
+/* Advanced Header Gradients */
+.gradient-header-primary { background: var(--gradient-header-primary); }
+.gradient-header-secondary { background: var(--gradient-header-secondary); }
+.gradient-header-medical { background: var(--gradient-header-medical); }
+.gradient-header-emergency { background: var(--gradient-header-emergency); }
+
+/* Card Gradients */
+.gradient-card-primary { background: var(--gradient-card-primary); }
+.gradient-card-secondary { background: var(--gradient-card-secondary); }
+.gradient-card-accent { background: var(--gradient-card-accent); }
+.gradient-card-neutral { background: var(--gradient-card-neutral); }
+.gradient-card-medical { background: var(--gradient-card-medical); }
+
+/* Radial Gradients */
+.gradient-radial-primary { background: var(--gradient-radial-primary); }
+.gradient-radial-secondary { background: var(--gradient-radial-secondary); }
+.gradient-radial-accent { background: var(--gradient-radial-accent); }
+.gradient-radial-medical { background: var(--gradient-radial-medical); }
+
+/* Overlay Gradients */
+.gradient-overlay-dark { background: var(--gradient-overlay-dark); }
+.gradient-overlay-primary { background: var(--gradient-overlay-primary); }
+.gradient-overlay-light { background: var(--gradient-overlay-light); }
+.gradient-overlay-medical { background: var(--gradient-overlay-medical); }
+
+/* Button Gradients */
+.gradient-button-primary { background: var(--gradient-button-primary); }
+.gradient-button-primary:hover { background: var(--gradient-button-primary-hover); }
+.gradient-button-secondary { background: var(--gradient-button-secondary); }
+.gradient-button-secondary:hover { background: var(--gradient-button-secondary-hover); }
+.gradient-button-accent { background: var(--gradient-button-accent); }
+.gradient-button-accent:hover { background: var(--gradient-button-accent-hover); }
+.gradient-button-medical { background: var(--gradient-button-medical); }
+.gradient-button-medical:hover { background: var(--gradient-button-medical-hover); }
+
+/* Border Utilities */
+.border-primary { border-color: var(--border-primary); }
+.border-secondary { border-color: var(--border-secondary); }
+.border-accent { border-color: var(--border-accent); }
+.border-light { border-color: var(--border-light); }
+.border-medical { border-color: var(--border-medical); }
+
+/* Enhanced Shadows */
+.shadow-primary { box-shadow: 0 4px 6px var(--shadow-primary); }
+.shadow-secondary { box-shadow: 0 4px 6px var(--shadow-secondary); }
+.shadow-neutral { box-shadow: 0 4px 6px var(--shadow-neutral); }
+.shadow-primary-lg { box-shadow: 0 8px 25px var(--shadow-primary); }
+.shadow-secondary-lg { box-shadow: 0 8px 25px var(--shadow-secondary); }
+.shadow-medical { box-shadow: 0 8px 30px rgba(238, 45, 46, 0.15); }
+
+/* Gradient Borders */
+.border-gradient-primary {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--neutral-white), var(--neutral-white)) padding-box,
+              var(--gradient-border-primary) border-box;
+}
+
+.border-gradient-secondary {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--neutral-white), var(--neutral-white)) padding-box,
+              var(--gradient-border-secondary) border-box;
+}
+
+.border-gradient-accent {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--neutral-white), var(--neutral-white)) padding-box,
+              var(--gradient-border-accent) border-box;
+}
+
+.border-gradient-medical {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--neutral-white), var(--neutral-white)) padding-box,
+              var(--gradient-border-medical) border-box;
+}
+
+/* Animated Gradients */
+.gradient-animated-primary {
+  background: var(--gradient-animated-primary);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+.gradient-animated-medical {
+  background: var(--gradient-animated-medical);
+  background-size: 400% 400%;
+  animation: gradientAnimation 20s ease infinite;
+}
+
+.gradient-animated-subtle {
+  background: var(--gradient-animated-subtle);
+  background-size: 400% 400%;
+  animation: gradientAnimation 25s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hover Effects */
+.gradient-hover-primary:hover {
+  background: var(--gradient-primary);
+  transition: background 0.3s ease;
+}
+
+.gradient-hover-secondary:hover {
+  background: var(--gradient-secondary);
+  transition: background 0.3s ease;
+}
+
+.gradient-hover-accent:hover {
+  background: var(--gradient-accent);
+  transition: background 0.3s ease;
+}
+
+/* Medical-specific Component Classes */
+.medical-header {
+  background: var(--gradient-header-medical);
+  color: var(--text-on-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.medical-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  opacity: 0.3;
+}
+
+.medical-card {
+  background: var(--gradient-card-primary);
+  border: 1px solid var(--primary-red-lighter);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.medical-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(238, 45, 46, 0.15);
+}
+
+.medical-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.medical-card:hover::before {
+  transform: translateX(100%);
+}
+
+.emergency-alert {
+  background: var(--gradient-header-emergency);
+  color: var(--text-on-primary);
+  border-left: 4px solid var(--primary-red-darkest);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+}

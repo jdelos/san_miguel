@@ -1,0 +1,404 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/ui/HeroSection.tsx';
+import GradientCard from '../components/ui/GradientCard.tsx';
+import GradientButton from '../components/ui/GradientButton.tsx';
+import GradientHeader from '../components/ui/GradientHeader.tsx';
+---
+
+<Layout title="Hospital San Miguel - Gradient Design System">
+  <main>
+    <!-- Hero Section Examples -->
+    <HeroSection 
+      title="Hospital San Miguel"
+      subtitle="Excelencia en Salud"
+      description="Comprometidos con brindar la mejor atención médica con tecnología de vanguardia y un equipo humano altamente especializado."
+      variant="medical"
+      size="lg"
+      client:load
+    >
+      <GradientButton variant="primary" size="lg" client:load>
+        Solicitar Cita
+      </GradientButton>
+      <GradientButton variant="outline" size="lg" client:load>
+        Conocer Más
+      </GradientButton>
+    </HeroSection>
+
+    <!-- Section: Gradient Headers -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">Gradient Headers</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Diferentes variantes de headers con gradientes personalizados para Hospital San Miguel
+          </p>
+        </div>
+        
+        <div class="space-y-8">
+          <GradientHeader 
+            title="Servicios Médicos"
+            subtitle="Atención especializada las 24 horas"
+            variant="primary"
+            size="md"
+            client:load
+          />
+          
+          <GradientHeader 
+            title="Emergencias"
+            subtitle="Respuesta inmediata para situaciones críticas"
+            variant="emergency"
+            size="md"
+            client:load
+          />
+          
+          <GradientHeader 
+            title="Medicina Integral"
+            subtitle="Combinando tradición y tecnología"
+            variant="medical"
+            size="md"
+            client:load
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Gradient Cards -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">Gradient Cards</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Tarjetas con efectos de gradiente para mostrar servicios y especialidades
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <GradientCard 
+            title="Cardiología" 
+            subtitle="Cuidado especializado del corazón"
+            variant="primary"
+            size="md"
+            client:load
+          >
+            <p class="text-gray-600">
+              Diagnóstico y tratamiento de enfermedades cardiovasculares con tecnología de última generación.
+            </p>
+          </GradientCard>
+          
+          <GradientCard 
+            title="Neurología" 
+            subtitle="Especialistas en sistema nervioso"
+            variant="secondary"
+            size="md"
+            client:load
+          >
+            <p class="text-gray-600">
+              Tratamiento integral de enfermedades neurológicas y trastornos del sistema nervioso.
+            </p>
+          </GradientCard>
+          
+          <GradientCard 
+            title="Pediatría" 
+            subtitle="Cuidado especializado para niños"
+            variant="accent"
+            size="md"
+            client:load
+          >
+            <p class="text-gray-600">
+              Atención médica especializada para bebés, niños y adolescentes en un ambiente cálido.
+            </p>
+          </GradientCard>
+          
+          <GradientCard 
+            title="Urgencias" 
+            subtitle="Atención inmediata 24/7"
+            variant="emergency"
+            size="md"
+            client:load
+          >
+            <p class="text-gray-600">
+              Servicio de urgencias disponible las 24 horas con personal altamente capacitado.
+            </p>
+          </GradientCard>
+          
+          <GradientCard 
+            title="Medicina General" 
+            subtitle="Atención integral de salud"
+            variant="medical"
+            size="md"
+            client:load
+          >
+            <p class="text-gray-600">
+              Consultas médicas generales, chequeos preventivos y seguimiento continuo.
+            </p>
+          </GradientCard>
+          
+          <GradientCard 
+            title="Laboratorio" 
+            subtitle="Análisis clínicos precisos"
+            variant="neutral"
+            size="md"
+            client:load
+          >
+            <p class="text-gray-600">
+              Pruebas de laboratorio con equipos modernos y resultados rápidos y confiables.
+            </p>
+          </GradientCard>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Gradient Buttons -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">Gradient Buttons</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Botones con efectos de gradiente y animaciones para diferentes acciones
+          </p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <!-- Button Variants -->
+          <div class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Variantes de Botones</h3>
+            <div class="flex flex-wrap gap-4 justify-center">
+              <GradientButton variant="primary" client:load>
+                Agendar Cita
+              </GradientButton>
+              <GradientButton variant="secondary" client:load>
+                Información
+              </GradientButton>
+              <GradientButton variant="accent" client:load>
+                Contactar
+              </GradientButton>
+              <GradientButton variant="medical" client:load>
+                Servicios
+              </GradientButton>
+              <GradientButton variant="emergency" client:load>
+                Emergencia
+              </GradientButton>
+              <GradientButton variant="outline" client:load>
+                Ver Más
+              </GradientButton>
+              <GradientButton variant="ghost" client:load>
+                Cancelar
+              </GradientButton>
+            </div>
+          </div>
+          
+          <!-- Button Sizes -->
+          <div class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Tamaños de Botones</h3>
+            <div class="flex flex-wrap gap-4 justify-center items-center">
+              <GradientButton variant="primary" size="sm" client:load>
+                Pequeño
+              </GradientButton>
+              <GradientButton variant="primary" size="md" client:load>
+                Mediano
+              </GradientButton>
+              <GradientButton variant="primary" size="lg" client:load>
+                Grande
+              </GradientButton>
+              <GradientButton variant="primary" size="xl" client:load>
+                Extra Grande
+              </GradientButton>
+            </div>
+          </div>
+          
+          <!-- Button States -->
+          <div class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Estados de Botones</h3>
+            <div class="flex flex-wrap gap-4 justify-center">
+              <GradientButton variant="primary" client:load>
+                Normal
+              </GradientButton>
+              <GradientButton variant="primary" isLoading={true} client:load>
+                Cargando
+              </GradientButton>
+              <GradientButton variant="primary" disabled client:load>
+                Deshabilitado
+              </GradientButton>
+            </div>
+          </div>
+          
+          <!-- Full Width Button -->
+          <div class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Botón Ancho Completo</h3>
+            <GradientButton variant="medical" size="lg" fullWidth client:load>
+              Solicitar Cita Médica - Disponible 24/7
+            </GradientButton>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: CSS Classes Demo -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">Clases CSS Disponibles</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Demostración de las clases CSS personalizadas para gradientes
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Medical Header Class -->
+          <div class="medical-header p-6 rounded-lg text-center">
+            <h3 class="text-xl font-bold mb-2">Medical Header</h3>
+            <p class="text-sm opacity-90">Clase: .medical-header</p>
+          </div>
+          
+          <!-- Medical Card Class -->
+          <div class="medical-card text-center">
+            <h3 class="text-xl font-bold mb-2 text-gray-800">Medical Card</h3>
+            <p class="text-sm text-gray-600">Clase: .medical-card</p>
+          </div>
+          
+          <!-- Emergency Alert Class -->
+          <div class="emergency-alert p-6 rounded-lg text-center">
+            <h3 class="text-xl font-bold mb-2">Emergency Alert</h3>
+            <p class="text-sm opacity-90">Clase: .emergency-alert</p>
+          </div>
+          
+          <!-- Animated Gradient -->
+          <div class="gradient-animated-medical p-6 rounded-lg text-center text-white">
+            <h3 class="text-xl font-bold mb-2">Animated Medical</h3>
+            <p class="text-sm opacity-90">Clase: .gradient-animated-medical</p>
+          </div>
+          
+          <!-- Radial Gradient -->
+          <div class="gradient-radial-primary p-6 rounded-lg text-center text-white">
+            <h3 class="text-xl font-bold mb-2">Radial Primary</h3>
+            <p class="text-sm opacity-90">Clase: .gradient-radial-primary</p>
+          </div>
+          
+          <!-- Card with Gradient Border -->
+          <div class="border-gradient-primary p-6 rounded-lg text-center">
+            <h3 class="text-xl font-bold mb-2 text-gray-800">Gradient Border</h3>
+            <p class="text-sm text-gray-600">Clase: .border-gradient-primary</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Color Palette -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">Paleta de Colores</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Colores principales basados en #EE2D2E de Hospital San Miguel
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Primary Colors -->
+          <div class="bg-white rounded-lg p-6 shadow-lg">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Colores Primarios</h3>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[var(--primary-red)] rounded"></div>
+                <span class="text-sm font-medium">#EE2D2E</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[var(--primary-red-light)] rounded"></div>
+                <span class="text-sm font-medium">Light</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[var(--primary-red-dark)] rounded"></div>
+                <span class="text-sm font-medium">Dark</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Secondary Colors -->
+          <div class="bg-white rounded-lg p-6 shadow-lg">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Colores Secundarios</h3>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[var(--secondary-teal)] rounded"></div>
+                <span class="text-sm font-medium">Teal</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[var(--accent-green)] rounded"></div>
+                <span class="text-sm font-medium">Green</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Neutral Colors -->
+          <div class="bg-white rounded-lg p-6 shadow-lg">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Colores Neutrales</h3>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[var(--neutral-gray-300)] rounded"></div>
+                <span class="text-sm font-medium">Gray 300</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[var(--neutral-gray-600)] rounded"></div>
+                <span class="text-sm font-medium">Gray 600</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[var(--neutral-gray-800)] rounded"></div>
+                <span class="text-sm font-medium">Gray 800</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">
+            Sistema de Diseño Completo
+          </h2>
+          <p class="text-xl text-gray-600 mb-8">
+            Todos los componentes están listos para usar con los colores y gradientes de Hospital San Miguel
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <GradientButton variant="primary" size="lg" client:load>
+              Implementar Ahora
+            </GradientButton>
+            <GradientButton variant="outline" size="lg" client:load>
+              Ver Documentación
+            </GradientButton>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Additional custom styles for the demo */
+  .container {
+    max-width: 1200px;
+  }
+  
+  /* Smooth scrolling for better UX */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+  }
+</style>

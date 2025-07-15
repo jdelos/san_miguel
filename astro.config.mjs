@@ -12,5 +12,16 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), icon(), react(), keystatic()],
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        'lodash': 'lodash-es'
+      }
+    },
+    ssr: {
+      noExternal: ['@keystatic/core', '@keystatic/astro', 'lodash-es']
+    },
+    optimizeDeps: {
+      include: ['lodash-es']
+    }
   },
 });
