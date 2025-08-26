@@ -10,7 +10,7 @@ import netlify from "@astrojs/netlify";
 // https://astro.build/config
 export default defineConfig({
   site: "https://astroship.web3templates.com",
-  output: "server",
+  output: "static",
   adapter: netlify(),
   integrations: [mdx(), sitemap(), icon(), react(), keystatic()],
   vite: {
@@ -26,9 +26,10 @@ export default defineConfig({
     optimizeDeps: {
       include: ["lodash-es"],
     },
-    server: { 
+    server: {
       port: 4321,
-      allowedHosts: [".ngrok-free.app"] },
+      allowedHosts: [".ngrok-free.app", "*.netlify.app"],
+    },
     build: {
       minify: false,
       target: "esnext",
