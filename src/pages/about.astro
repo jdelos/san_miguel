@@ -1,15 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
-import Sectionhead from "@/components/sectionhead.astro";
+import PageHero from "@/components/PageHero.astro";
 ---
 
 <Layout title="About">
   <Container>
-    <Sectionhead>
-      <Fragment slot="title">Quiénes Somos</Fragment>
-      <Fragment slot="desc">Conoce más sobre el Hospital San Miguel y la Fundación Quina Care.</Fragment>
-    </Sectionhead>
+     <PageHero title={"Quiénes Somos"} description={"Conoce más sobre el Hospital San Miguel y la Fundación Quina Care."}/>
 
     <div class="flex flex-col gap-6 mx-auto max-w-4xl mt-16">
       <div>

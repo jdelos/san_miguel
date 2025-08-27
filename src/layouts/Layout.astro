@@ -4,7 +4,10 @@ import Footer from "@/components/footer.astro";
 import Navbar from "@/components/navbar/navbar.astro";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics.astro";
 import CookieConsent from "@/components/CookieConsent.astro";
-import { shouldEnableAnalytics, getGoogleAnalyticsId } from "@/config/analytics.ts";
+import {
+  shouldEnableAnalytics,
+  getGoogleAnalyticsId,
+} from "@/config/analytics.ts";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
@@ -59,15 +62,17 @@ const makeTitle = title
         },
       }}
     />
-    
+
     <!-- Google Analytics -->
     {shouldEnableAnalytics() && <GoogleAnalytics id={getGoogleAnalyticsId()} />}
   </head>
   <body>
     <Navbar />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
-    
+
     <!-- Cookie Consent -->
     <CookieConsent />
     <style is:global>

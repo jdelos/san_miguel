@@ -2,9 +2,7 @@
 import Container from "@/components/container.astro";
 import Features from "@/components/features.astro";
 import Hero from "@/components/heroImage.astro";
-import Logos from "@/components/logos.astro";
 import Layout from "@/layouts/Layout.astro";
-import Sectionhead from "@/components/sectionhead.astro";
 import { getHomepageData } from '../utils/keystatic';
 
 // Get homepage content
@@ -12,17 +10,17 @@ const homepage = await getHomepageData();
 ---
 
 <Layout title="Hospital San Miguel - Quina Care">
-  <Hero />
+  <Hero hero={homepage.welcomeTitle} subheader />
   <Container>
     <div class="flex flex-col gap-8 mx-auto max-w-4xl mt-20 mb-16">
-      <div class="text-center">
+      <!-- <div class="text-center">
         <h2 class="font-bold text-4xl lg:text-5xl text-gray-800 mb-6">
           {homepage.welcomeTitle}
         </h2>
         <p class="text-xl text-slate-600 max-w-3xl mx-auto">
           {homepage.subtitle}
         </p>
-      </div>
+      </div> -->
       
       <div class="grid gap-8 text-center">
         <div class="bg-blue-50 p-8 rounded-lg">

@@ -5,14 +5,27 @@ import Link from "@/components/ui/link.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<main class="grid lg:grid-cols-1 place-items-center pb-6 md:pb-12">
+<section class="relative grid lg:grid-cols-1 place-items-center">
   <div class="block">
     <Picture
       src={heroImage}
-      alt="Astronaut in the air"
+      alt="Hospital San Miguel, en Puerto El Carmen"
       widths={[200, 400, 600, 1200]}
       loading="eager"
       format="avif"
+      class="w-full h-full object-cover"
     />
+    <div
+      class="absolute inset-0 flex flex-col items-end justify-end text-center bg-black/20">
+      <div class="p-6 md:p-12 xl:p-20 text-right">
+        <h1
+          class="text-3xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] uppercase">
+          Hospital <br /> San Miguel
+        </h1>
+        <!-- <p class="mt-4  text-lg md:text-2xl text-white drop-shadow-md text-balance">
+          Atención médica de calidad las 24 horas del día en Puerto el Carmen
+        </p> -->
+      </div>
+    </div>
   </div>
-</main>
+</section>
